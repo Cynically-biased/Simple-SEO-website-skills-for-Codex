@@ -8,6 +8,19 @@ description: >-
 
 # Manual SEO quality audit (read-only)
 
+## Required sitemap audit rule
+
+- Check for a physical root `sitemap.xml` containing valid XML.
+- Flag `sitemap.php`, dynamic PHP sitemap routes or rewrites to PHP
+  as violations even if they return an XML content type.
+- Check `robots.txt` points to the physical XML sitemap, and that
+  its URLs are canonical, absolute, indexable, accurate and current.
+- This is a read-only audit: report violations and their locations,
+  but never edit or generate a sitemap as part of the report.
+- Older reference material permits PHP sitemap generation; that
+  option is superseded by this project's static-XML requirement.
+
+
 Run only when the user invokes `$website-seo-report` or
 explicitly requests a comprehensive SEO audit. Do not run this
 skill after ordinary coding tasks or as part of `$website-workflow`.

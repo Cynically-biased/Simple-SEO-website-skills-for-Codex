@@ -9,6 +9,27 @@ description: >-
 
 # PHP website development
 
+## Mandatory sitemap format: real XML file only
+
+- The sitemap MUST be a real UTF-8 XML file at the website root,
+  named `sitemap.xml` and served directly at `/sitemap.xml`.
+- Never implement the sitemap as `sitemap.php`, a PHP output script,
+  a route that generates XML on request, or an `.htaccess` rewrite
+  forwarding `/sitemap.xml` to PHP.
+- Include only valid canonical, absolute, indexable URLs that actually
+  belong to the site. Use the correct live domain; never publish
+  placeholder URLs or fabricated `lastmod` dates.
+- When authorized to add, remove, or significantly change a page,
+  update the physical `sitemap.xml` in the same edit batch.
+- Reference the XML file in `robots.txt` using the public URL.
+- Keep the sitemap compliant with the XML sitemap protocol. If the
+  project grows, multiple physical XML sitemap files and an XML
+  sitemap index are permitted; PHP-generated sitemaps are not.
+- Do not run SEO audits or submit sitemaps to Google automatically.
+- This policy supersedes the optional PHP sitemap generation example
+  retained in `references/integrations-full.md` for provenance.
+
+
 ## Strict Tailwind-only styling (mandatory; zero custom CSS)
 
 - Tailwind CSS utilities are the **only allowed styling method** for all

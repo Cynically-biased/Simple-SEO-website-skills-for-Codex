@@ -1,3 +1,9 @@
+> **Codex project-policy override:** The original document below
+> includes an optional PHP-generated sitemap example. It is kept
+> as source reference only. For these Codex skills, use a real
+> static `/sitemap.xml` file; `sitemap.php` and PHP rewrites are
+> prohibited. Refer to root `AGENTS.md` for the mandatory policy.
+
 # External Services & Integrations
 
 ## Overview

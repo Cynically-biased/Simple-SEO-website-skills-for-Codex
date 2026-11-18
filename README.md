@@ -228,3 +228,11 @@ but **does not guarantee lower Codex usage**. Manual tests and
 SEO/structure reports remain opt-in.
 
 See [DEVELOPMENT_EFFICIENCY.md](DEVELOPMENT_EFFICIENCY.md).
+
+## Sitemap policy (mandatory)
+
+All projects must use a **real, UTF-8 `sitemap.xml` file** at
+the site root. Never use `sitemap.php` or a route/rewrite that
+generates a sitemap dynamically with PHP. Update the XML file
+when indexable pages change. The `$website-seo-report` command
+checks this requirement without editing the project.

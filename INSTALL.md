@@ -418,3 +418,15 @@ Copy this file alongside `AGENTS.md` into the website project root.
   remain manual commands.
 
 This is guidance, not a hard usage cap or guaranteed savings.
+
+## Static XML sitemap requirement
+
+This project mandates a **real `sitemap.xml` file** in the
+website root. The SEO and website workflow skills never create
+`sitemap.php` or rewrite `/sitemap.xml` to a PHP endpoint.
+When adding or changing indexable pages, keep this XML file
+accurate; the manual SEO report checks for violations.
+
+The detailed original SEO reference is preserved in the archive.
+Its optional dynamic PHP sitemap example is overridden by the
+new mandatory policy in `AGENTS.md` and the active skills.
