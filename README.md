@@ -1,7 +1,8 @@
 # Codex Website Skills — Graphify-First Workflow
 
 A reusable set of Codex skills for developing, reviewing and maintaining
-PHP websites with Tailwind CSS, JavaScript, SEO and structured code.
+PHP websites with **strict Tailwind-only styling**, JavaScript, SEO,
+and structured code.
 
 The package uses **Graphify-first project inspection** where the official
 Graphify skill is available. It aims to avoid repeated full-codebase reads,
@@ -198,3 +199,14 @@ See [GRAPHIFY.md](GRAPHIFY.md),
 - The PHP website conventions come from the supplied template.
   Adapt them when a project's actual framework or requirements differ.
 - Review before committing private client information or secrets.
+
+## Tailwind-only styling (strict)
+
+**No custom CSS is permitted for new or modified styling:** no `<style>`
+blocks, inline CSS, custom selectors/classes, `@apply`, handwritten
+media queries or alternative CSS frameworks. Use Tailwind utilities
+directly in markup. A minimal Tailwind entry file and generated
+Tailwind output are allowed; never manually edit build output.
+
+Legacy source documentation is retained unchanged, but this stricter
+policy takes precedence over its older custom-CSS exceptions.

@@ -9,6 +9,18 @@ description: >-
 
 # Format existing website code on demand
 
+## Strict styling preservation
+
+- The project uses Tailwind utilities exclusively: do not create CSS,
+  inline styles, `@apply`, or custom CSS classes while formatting.
+- This formatter is formatting-only. Do not silently migrate legacy CSS
+  to Tailwind, remove third-party CSS, or alter a site's appearance.
+- Report existing non-Tailwind styling violations as out of scope;
+  change them only if the user explicitly requests a separate migration.
+- Apply the strict Tailwind policy in root `AGENTS.md` to any code
+  formatting you perform. Keep generated CSS untouched.
+
+
 Run only when the user explicitly invokes `$website-format-code`
 (or clearly requests an equivalent project-wide reformat).
 This is a formatting *repair* skill, not a development skill.

@@ -10,6 +10,14 @@ description: >-
 
 # Website structure report (read-only)
 
+## Strict Tailwind-only architecture policy
+
+- When proposing a structure, recommend Tailwind utilities for styling.
+- Do not propose custom CSS stylesheets, `@apply`, or inline CSS.
+- A minimal Tailwind entry file and compiled build artifact may exist.
+- This report is read-only; never migrate styles during a review.
+
+
 Run only when asked with `$website-structure-report` or when the
 user explicitly requests a website architecture/structure review.
 This is an advisory report, not an automatic refactoring step.

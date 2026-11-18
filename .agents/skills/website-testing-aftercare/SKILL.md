@@ -9,6 +9,47 @@ description: >-
 
 # Website testing and aftercare
 
+## Strict Tailwind-only styling (mandatory; zero custom CSS)
+
+- Tailwind CSS utilities are the **only allowed styling method** for all
+  new and modified website UI, including layout, spacing, typography,
+  color, animation, states, responsiveness, and print styling.
+- **Never write handwritten CSS declarations or selectors** in `.css`,
+  `<style>` blocks, inline `style` attributes, CSS-in-JS, or PHP/JS
+  strings. Never create or add custom CSS classes for styling.
+- **Never use `@apply`**, `@layer` with custom CSS rules, custom
+  selectors, `@font-face`, or handwritten media queries/keyframes.
+  Never introduce CSS modules, Sass/SCSS, Less, or another styling system.
+- Use Tailwind utility classes directly in `class`/`className` values.
+  For interaction states, use Tailwind variants such as `hover:`,
+  `focus-visible:`, `disabled:`, `dark:`, and `group-*` as appropriate.
+- For responsive layouts, use `sm:`, `md:`, `lg:`, `xl:` and other
+  Tailwind variants; do not handwrite media queries.
+- Set design tokens through the existing Tailwind configuration or
+  the supported Tailwind theme mechanisms. Configuration values are
+  not a license to introduce custom selector rules.
+- The only permitted CSS source file is a **minimal Tailwind build
+  entrypoint** containing the import/directives required by the
+  installed Tailwind version; it must not contain custom styling.
+  Tailwind-generated CSS output may exist but must never be edited
+  manually. Existing third-party/generated CSS is not a template for
+  additional custom styles; do not alter it as a styling workaround.
+- Do not introduce inline style values through JavaScript or DOM APIs.
+  Toggle Tailwind utility classes instead where appropriate.
+- Follow the project's installed Tailwind major version: do not mix
+  Tailwind v3 directives/configuration with Tailwind v4 syntax.
+- Before finishing **an authorized styling change**, inspect the
+  changed handwritten source for prohibited CSS and replace any
+  introduced instances with Tailwind classes. This is a targeted
+  source check, **not** an automatic test, audit, or full-project scan.
+- If the exact requirement cannot be achieved with Tailwind utilities
+  and supported configuration, **do not silently add custom CSS**.
+  Explain the limitation and ask for a different design approach.
+- These rules override older, less strict Tailwind advice found in
+  preserved `references/` documentation (including exceptions for
+  custom CSS and use of `@apply`). Keep reference files unchanged.
+
+
 ## Source of truth
 
 Read `references/testing-full.md` for the complete uploaded aftercare
