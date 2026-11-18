@@ -402,3 +402,19 @@ but the strict root policy takes precedence over their old exceptions.
 When using a pre-existing site with handwritten CSS, Codex should
 report it instead of silently rewriting unrelated files. A separate,
 authorized migration task is needed to convert legacy CSS to Tailwind.
+
+## Token-Efficient Development Mode
+
+No extra skill command is required. With the latest `AGENTS.md`,
+`$website-workflow` follows `DEVELOPMENT_EFFICIENCY.md`.
+Copy this file alongside `AGENTS.md` into the website project root.
+
+- Empty project: avoid Graphify graph creation at startup.
+- Existing site: prefer targeted queries against the current graph.
+- Tailwind migration: convert components/pages in bounded batches.
+- After relevant authorized changes: synchronize affected graph
+  information according to `GRAPHIFY_SYNC.md`.
+- Tests, SEO/structure audits and existing-code formatting
+  remain manual commands.
+
+This is guidance, not a hard usage cap or guaranteed savings.

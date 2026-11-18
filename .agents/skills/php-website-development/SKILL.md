@@ -128,3 +128,15 @@ description: >-
   the user explicitly asks for testing.
 - Report changed files and state that tests were not run.
 - For an optional scored read-only audit use `$website-test-report`.
+
+
+## Token-efficient editing guidance
+
+- Follow the repository-root `DEVELOPMENT_EFFICIENCY.md`.
+- For a new site, create requested sections incrementally;
+  do not generate every possible page or graph an empty project.
+- For CSS-to-Tailwind conversions, migrate shared components
+  first, followed by one page or closely related group per batch.
+- Reuse existing PHP/Tailwind patterns and avoid broad rewrites.
+- Preserve the strict no-custom-CSS policy in every batch.
+- Never auto-run testing, SEO reviews or formatting passes.

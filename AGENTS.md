@@ -2,6 +2,25 @@
 
 ## Default website development workflow
 
+### Automatic Token-Efficient Development Mode
+
+- For normal website development use `DEVELOPMENT_EFFICIENCY.md`.
+- Detect empty/new projects, targeted edits, Tailwind migrations,
+  and large refactors before choosing the inspection strategy.
+- For empty sites, skip Graphify analysis until meaningful code
+  exists. For existing sites, reuse the current graph when useful.
+- For large tasks, make small, related edits in bounded batches;
+  prioritize shared components, then individual pages.
+- Preserve completed work. Avoid re-reading unchanged files or
+  rewriting entire files when a smaller edit will do.
+- Continue strict Tailwind-only source changes. The policy does
+  not permit custom CSS, inline styles, or `@apply`.
+- Graphify sync is after relevant authorized edit batches only.
+- Do not automatically run tests, SEO audits, structure reports,
+  or the on-demand format-code command.
+
+
+
 For website development requests, automatically follow:
 
 - `.agents/skills/website-workflow/SKILL.md`

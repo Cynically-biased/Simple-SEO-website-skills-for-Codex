@@ -210,3 +210,21 @@ Tailwind output are allowed; never manually edit build output.
 
 Legacy source documentation is retained unchanged, but this stricter
 policy takes precedence over its older custom-CSS exceptions.
+
+## Automatic Token-Efficient Development Mode
+
+`$website-workflow` automatically selects a development approach:
+
+- **New project:** skip unnecessary Graphify analysis and build
+  requested features in small batches.
+- **Existing project:** reuse the graph and read relevant files.
+- **Tailwind migration:** convert shared components first and
+  then individual pages, without repeatedly rewriting finished
+  pages or introducing custom CSS.
+- **Large refactor:** split work by dependency boundaries.
+
+It avoids repeated source reads and unnecessary Graphify rebuilds,
+but **does not guarantee lower Codex usage**. Manual tests and
+SEO/structure reports remain opt-in.
+
+See [DEVELOPMENT_EFFICIENCY.md](DEVELOPMENT_EFFICIENCY.md).

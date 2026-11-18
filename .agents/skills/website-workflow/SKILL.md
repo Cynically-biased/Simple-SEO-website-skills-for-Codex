@@ -11,6 +11,27 @@ description: >-
 
 # Complete website workflow
 
+## Automatic development mode selection
+
+**Before Graphify kickoff**, read `../../../DEVELOPMENT_EFFICIENCY.md`
+(or the repository-root equivalent) and classify the task:
+
+1. **New / empty project:** skip initial Graphify indexing and
+   analysis. Build only the requested small section first.
+2. **Existing project:** reuse a relevant current graph to scope
+   direct file inspection and targeted edits.
+3. **Custom CSS to Tailwind migration:** work in bounded batches;
+   convert shared elements first, then individual pages. Avoid
+   rewriting completed pages and maintain strict Tailwind-only CSS.
+4. **Large refactor:** split at dependency boundaries and avoid
+   wholesale replacement when targeted changes are possible.
+
+For all types, complete the task in manageable related batches,
+reuse source context, and synchronize Graphify only once after
+relevant editing batches when supported. Manual audits stay manual.
+
+
+
 ## Strict Tailwind-only styling (mandatory; zero custom CSS)
 
 - Tailwind CSS utilities are the **only allowed styling method** for all
@@ -55,10 +76,11 @@ description: >-
 This is the single entry point for the project website standards.
 Invoke with `$website-workflow` followed by the task.
 
-## Graphify-first kickoff (required with this command)
+## Graphify kickoff (existing projects only)
 
-When invoked with `$website-workflow`, follow the installed
-`$graphify` skill **and** `../../../GRAPHIFY_EFFICIENCY.md`.
+For existing projects, follow the installed `$graphify` skill
+and `../../../GRAPHIFY_EFFICIENCY.md`. For an empty/new
+project, skip this kickoff until useful source exists.
 The user does not need to invoke `$graphify` separately.
 
 1. Discover and read the official Graphify skill; do not assume
@@ -93,7 +115,8 @@ applicable requirements from the original documents.
 
 ## Process for every task
 
-1. **After Graphify kickoff, inspect** relevant project instructions,
+1. **After mode selection and any applicable Graphify kickoff,
+   inspect** relevant project instructions,
    the design reference and targeted code; avoid whole-repo dumps.
 2. **Plan** a concise checklist of changes and checks. Distinguish
    requested work from features that do not apply to this site.
@@ -129,7 +152,7 @@ Do not claim tests passed unless they were explicitly run.
 - Format PHP arrays, function calls, conditions and method chains at
   valid syntax boundaries. Use readable indentation consistently.
 - Format JS/TS expressions, objects and calls across actual lines.
-  Format CSS declarations on separate lines; wrap selector lists.
+  Do not write or format custom CSS declarations.
 - Do not concatenate code into a long single line or minify editable
   source files. Generated and vendor assets may remain minified.
 - Preserve runtime behavior, whitespace-sensitive content, string
