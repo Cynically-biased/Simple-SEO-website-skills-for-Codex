@@ -276,7 +276,7 @@ solely from the codebase.
 New websites follow [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md).
 Ordinary page content, markup and SEO metadata remain in the PHP page.
 Only repeated or substantial editable arrays are moved into modular
-PHP files such as `data/services.php` or `data/faqs.php` when helpful.
+PHP files such as `data/_services.php` or `data/_faqs.php` when helpful.
 No JSON content files are required. Footer content stays in its
 existing footer partial.
 
@@ -301,3 +301,14 @@ helpful; ordinary page HTML stays in its page. See `AGENTS.md` and
   small batches, relevant checks and short completion summaries.
 - See `TOKEN_EFFICIENT_MODE_V2.md` for policy and caveats.
 - All manual-only audit and format boundaries are unchanged.
+
+## Logical file naming (new)
+
+- Give every new file a descriptive, responsibility-based name.
+- Public PHP pages use names like `contact.php` without a leading `_`.
+- Non-page PHP files use a leading `_`: `handlers/_contact-submit.php`,
+  `components/_service-card.php`, `enums/_ServiceType.php`,
+  `data/_services.php`. See `FILE_NAMING.md`.
+- The structure report checks naming issues; the cleanup report does not
+  assume badly named files are unused; the formatter never renames files.
+- Existing project files are **not** renamed automatically.

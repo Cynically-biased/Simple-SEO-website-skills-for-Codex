@@ -452,7 +452,7 @@ issues and suggested wording but makes no edits.
 - Include `CONTENT_ARCHITECTURE.md` in the project root.
 - Keep normal page copy, SEO metadata and markup in PHP page files.
 - Only extract repeated or substantial editable lists into focused
-  PHP files such as `data/services.php` and `data/faqs.php`.
+  PHP files such as `data/_services.php` and `data/_faqs.php`.
 - Do not create website content JSON files or universal JSON loaders.
 - Keep footer content in `partials/_footer.php`.
 - Existing sites are not migrated unless the user asks.
@@ -496,3 +496,14 @@ After installing the complete `.agents/skills/` folder and restarting Codex,
 run `$website-cleanup-report` to inspect potentially unused files, folders,
 code, assets and dependencies. It is **read-only**: nothing is deleted or
 modified. Review its evidence and approve any subsequent cleanup separately.
+
+## Logical file naming (new)
+
+- Give every new file a descriptive, responsibility-based name.
+- Public PHP pages use names like `contact.php` without a leading `_`.
+- Non-page PHP files use a leading `_`: `handlers/_contact-submit.php`,
+  `components/_service-card.php`, `enums/_ServiceType.php`,
+  `data/_services.php`. See `FILE_NAMING.md`.
+- The structure report checks naming issues; the cleanup report does not
+  assume badly named files are unused; the formatter never renames files.
+- Existing project files are **not** renamed automatically.

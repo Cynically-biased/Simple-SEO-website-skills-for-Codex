@@ -23,3 +23,11 @@ needed; for report/formatter invocations, read all necessary audit or
 formatting criteria before executing. Do not read unrelated skills.
 
 Root `AGENTS.md` is authoritative for the common invariants.
+
+## File names (mandatory)
+
+- Use logical, descriptive filenames reflecting actual purpose.
+- Public PHP website pages are unprefixed; non-page PHP files in `data/`,
+  `components/`, `handlers/`, `enums/` and `partials/` start with `_`.
+- Read root `FILE_NAMING.md` when creating new files; do not auto-rename
+  existing ones or break includes, URLs, routing or autoloading.

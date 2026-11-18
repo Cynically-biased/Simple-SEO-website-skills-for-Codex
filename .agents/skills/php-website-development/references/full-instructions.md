@@ -1,3 +1,6 @@
+> File naming: root `FILE_NAMING.md` overrides older examples; all non-page
+> PHP implementation files start with `_`, while page PHP files do not.
+
 ---
 name: php-website-development
 description: >-
@@ -16,8 +19,8 @@ description: >-
   request category) with a **separate backed PHP enum**.
 - Create `enums/` when the first such choice field is needed. Use one
   descriptive enum per distinct choice domain, e.g.
-  `enums/ServiceType.php`, `enums/ContactPreference.php` and
-  `enums/BudgetRange.php`. **Never combine unrelated choice enums in one
+  `enums/_ServiceType.php`, `enums/_ContactPreference.php` and
+  `enums/_BudgetRange.php`. **Never combine unrelated choice enums in one
   file.** Multiple choice fields mean separate enum files when they
   represent different domains; reuse one enum across forms if the
   choices are genuinely the same.
@@ -64,7 +67,7 @@ description: >-
   repeated cards, service/product lists, FAQ entries, testimonials,
   team members, menus, or multiple substantial editable arrays.
 - Store reusable arrays under `data/` in descriptive PHP files, e.g.
-  `data/services.php`, `data/faqs.php`, or `data/services/roofing.php`.
+  `data/_services.php`, `data/_faqs.php`, or `data/services/_roofing.php`.
   Group related arrays logically; do not create files unnecessarily.
 - When several pages share a category dataset, maintain one source
   array and reuse it rather than duplicating the same entries.

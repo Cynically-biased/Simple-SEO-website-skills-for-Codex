@@ -12,7 +12,9 @@ description: >-
 - Only run when explicitly requested. `--check` reports findings without edits.
 - Format PHP pages, handlers, enums, components, partials and `data/*.php` arrays safely.
 - Prefer physical lines <=88 characters (100 maximum where practical), clean indentation and whitespace.
-- Never change behavior, symbols, enum choices, file layout, Tailwind styling or architecture. Do not perform a CSS migration.
+- Never change behavior, symbols, enum choices, file layout, filenames, Tailwind styling or architecture. Do not perform a CSS migration.
+- Do not add/remove `_` filename prefixes or update imports/includes; filename
+  convention problems belong in `$website-structure-report`, not formatting.
 - Make minimal formatting diffs and avoid unrelated files; no automatic audits.
 - Read `references/full-instructions.md` when invoked for detailed safety checks and supported formatting patterns.
 

@@ -11,6 +11,12 @@ description: >-
 
 # Complete website workflow
 
+> **Mandatory naming override:** Follow root `FILE_NAMING.md` and
+> `AGENTS.md`: descriptive filenames; prefix every non-page PHP file with
+> `_`, never prefix PHP website pages. Any older unprefixed filenames in
+> examples in this reference are historical and must not be copied as-is.
+> Existing files are not renamed automatically.
+
 ## Form choice enums and handlers (mandatory)
 
 - In PHP 8.1+ projects, represent every form field with a fixed set of
@@ -18,8 +24,8 @@ description: >-
   request category) with a **separate backed PHP enum**.
 - Create `enums/` when the first such choice field is needed. Use one
   descriptive enum per distinct choice domain, e.g.
-  `enums/ServiceType.php`, `enums/ContactPreference.php` and
-  `enums/BudgetRange.php`. **Never combine unrelated choice enums in one
+  `enums/_ServiceType.php`, `enums/_ContactPreference.php` and
+  `enums/_BudgetRange.php`. **Never combine unrelated choice enums in one
   file.** Multiple choice fields mean separate enum files when they
   represent different domains; reuse one enum across forms if the
   choices are genuinely the same.
@@ -66,7 +72,7 @@ description: >-
   repeated cards, service/product lists, FAQ entries, testimonials,
   team members, menus, or multiple substantial editable arrays.
 - Store reusable arrays under `data/` in descriptive PHP files, e.g.
-  `data/services.php`, `data/faqs.php`, or `data/services/roofing.php`.
+  `data/_services.php`, `data/_faqs.php`, or `data/services/_roofing.php`.
   Group related arrays logically; do not create files unnecessarily.
 - When several pages share a category dataset, maintain one source
   array and reuse it rather than duplicating the same entries.

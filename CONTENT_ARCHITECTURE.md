@@ -15,10 +15,10 @@ items that are easier to maintain separately.
 ```text
 project-root/
 ├── data/
-│   ├── services.php
-│   ├── faqs.php
+│   ├── _services.php
+│   ├── _faqs.php
 │   └── services/
-│       └── roofing.php
+│       └── _roofing.php
 ├── partials/
 │   ├── _header.php
 │   └── _footer.php
@@ -32,6 +32,9 @@ The `data/` directory is **optional** until useful arrays exist.
 Do not create empty folders or files. Keep footer content in its
 existing PHP partial, not in a `data/` array file.
 
+See `FILE_NAMING.md` for the mandatory leading `_` on all non-page
+PHP files, including data arrays, handlers, components and enums.
+
 ## What belongs where?
 
 | Content | Recommended location |
@@ -39,10 +42,10 @@ existing PHP partial, not in a `data/` array file.
 | Hero heading, page paragraphs, sections, HTML | The relevant PHP page |
 | Page title and meta description | The relevant PHP page |
 | A single small list used once | The relevant PHP page |
-| Repeated service cards across multiple pages | `data/services.php` |
-| Frequently edited FAQs or testimonials | `data/faqs.php` |
-| Category-specific repeated listings | `data/<category>.php` |
-| Multiple complex groups in one category | `data/<category>/*.php` |
+| Repeated service cards across multiple pages | `data/_services.php` |
+| Frequently edited FAQs or testimonials | `data/_faqs.php` |
+| Category-specific repeated listings | `data/_<category>.php` |
+| Multiple complex groups in one category | `data/<category>/_*.php` |
 | Footer text and links | `partials/_footer.php` |
 
 Avoid overengineering: extracting an array must make editing easier,
@@ -50,7 +53,7 @@ not add extra files or indirection.
 
 ## Example reusable PHP array
 
-`data/services.php`:
+`data/_services.php`:
 
 ```php
 <?php
@@ -74,7 +77,7 @@ In a page that displays those cards:
 ```php
 <?php
 
-$services = require __DIR__ . '/data/services.php';
+$services = require __DIR__ . '/data/_services.php';
 ?>
 
 <section>
@@ -138,8 +141,8 @@ Prefer one file per sensible dataset, not one file per array item.
   request category) with a **separate backed PHP enum**.
 - Create `enums/` when the first such choice field is needed. Use one
   descriptive enum per distinct choice domain, e.g.
-  `enums/ServiceType.php`, `enums/ContactPreference.php` and
-  `enums/BudgetRange.php`. **Never combine unrelated choice enums in one
+  `enums/_ServiceType.php`, `enums/_ContactPreference.php` and
+  `enums/_BudgetRange.php`. **Never combine unrelated choice enums in one
   file.** Multiple choice fields mean separate enum files when they
   represent different domains; reuse one enum across forms if the
   choices are genuinely the same.

@@ -32,6 +32,12 @@
   validate submitted values via enum parsing in `handlers/`.
 - Put form processing, input validation, CSRF protection and redirects in
   focused handlers. Use `components/` only for genuine reuse/complexity.
+- Name files for what they contain and do. PHP files that serve as website
+  pages/routes use descriptive names without a prefix (`contact.php`).
+  Every non-page PHP implementation file must start with `_`
+  (`components/_service-card.php`, `handlers/_contact.php`,
+  `enums/_ServiceType.php`, `data/_services.php`). Never rename or
+  reorganize existing files unless explicitly requested.
 - Preserve semantics and readable physical source lines (prefer <=88 chars,
   practical maximum 100). Do not reformat unrelated code.
 
@@ -48,6 +54,7 @@
 ## Detailed references (read only when relevant)
 
 - `CONTENT_ARCHITECTURE.md`: PHP arrays, enums, handlers and components.
+- `FILE_NAMING.md`: descriptive filenames and `_` prefix for non-page PHP files.
 - `DEVELOPMENT_EFFICIENCY.md`: batching, work types and Graphify sync.
 - `GRAPHIFY.md`, `GRAPHIFY_EFFICIENCY.md`, `GRAPHIFY_SYNC.md`:
   consult only when Graphify operations are actually needed.

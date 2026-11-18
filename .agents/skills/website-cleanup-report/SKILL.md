@@ -19,6 +19,10 @@ description: >-
   unused dependencies and redundant configuration **as candidates**.
 - Inspect source and runtime/deploy entry points before claiming a file is
   unnecessary. An absence of text matches does **not** prove safe removal.
+- A leading `_` on a PHP filename means non-page implementation, **not**
+  unused or safe to remove; trace includes, handlers and callers first.
+- Poorly named files may be noted, but a naming violation is not evidence of
+  redundancy or safe deletion.
 - Account for dynamic includes, routing, reflection, template conventions,
   URL links, JS imports, CSS/Tailwind config, external deploy/CDN references,
   cron jobs, autoloaders, PHP sessions and environment configuration.

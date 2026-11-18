@@ -53,6 +53,25 @@ Only propose structure changes; never apply them.
 - Distinguish verified issues, tentative risks, and preferences.
 - Do not assume a large framework or MVC rewrite is required.
 
+## Mandatory file-naming conformance (read-only)
+
+- Read root `FILE_NAMING.md` for conventions and exceptions. Examine routes,
+  web server config, entry points, and references to distinguish public PHP
+  pages from implementation PHP files. Never infer routing from a prefix alone.
+- Flag vague names like `new.php`, `thing.php`, `test2.php`, and ambiguous
+  backups, unless the project's real semantics clearly justify them.
+- Website pages (`index.php`, `about.php`, `contact.php`) must not begin with
+  `_`; non-page PHP in handlers, components, partials, data, enums and
+  helpers must begin with `_`, including nested files.
+- Verify declarations and references remain logical even if class names differ
+  from filenames (e.g., `enums/_ServiceType.php` defines `ServiceType`).
+- Include exact offending file paths, the reason, proposed names, confidence,
+  and rename blast radius (includes, autoload maps, routes, links, tests).
+- Do not rename, relocate, or edit anything during this report. If there is a
+  framework/autoloader convention that conflicts with `_` prefixes, document
+  the conflict; never recommend a silently breaking rename.
+- Treat existing legacy names as an audit finding, not an automatic fix.
+
 ## Required architecture conformance checks (explicit)
 
 Inspect the **relevant existing** pages, form markup, handlers,
