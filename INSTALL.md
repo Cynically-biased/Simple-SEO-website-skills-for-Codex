@@ -526,3 +526,13 @@ existing website, invoke `$website-naming-fix --check` (read-only) and then
 
 SEO modes are strictly read-only. Source code alone cannot verify rankings,
 indexation, measured performance or displayed Google snippets.
+
+
+## Cleanup Report V2 commands
+
+`$website-cleanup-report` = targeted and efficient cleanup review.
+
+`$website-cleanup-report --deep` = broader review of actively referenced but
+unnecessary code, duplicate behavior and overengineered architecture.
+
+Both commands are optional, read-only, and never delete or rewrite code.

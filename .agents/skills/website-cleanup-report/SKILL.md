@@ -1,42 +1,67 @@
 ---
 name: website-cleanup-report
 description: >-
-  On-demand, strictly read-only audit to find potentially unused, obsolete,
-  duplicated or unnecessary project files, folders, code, assets and
-  dependencies in PHP/Tailwind websites. Explain evidence and deletion risk;
-  never remove anything or change project files.
+  Manual, strictly read-only PHP/Tailwind website cleanup and necessity audit.
+  Default mode efficiently detects unused and clearly redundant code; --deep
+  traces referenced-but-unnecessary functionality, overengineering and
+  opportunities to simplify. Never delete or modify files.
 ---
 
-# On-demand cleanup report (read-only)
+# Website cleanup report V2 (manual, read-only)
 
-- Run **only when explicitly invoked** as `$website-cleanup-report`.
-- **Never delete, move, modify, or automatically clean up any files**, including
-  tracked, untracked, generated and ignored files. Do not run cleanup commands.
-- First inspect a lightweight file inventory, manifests and available Git
-  metadata; search references selectively, not with a full repository dump.
-- Identify unused or duplicate source, unused components/handlers/enums/data,
-  stale assets, legacy CSS, empty directories, old backups/build output,
-  unused dependencies and redundant configuration **as candidates**.
-- Inspect source and runtime/deploy entry points before claiming a file is
-  unnecessary. An absence of text matches does **not** prove safe removal.
-- A leading `_` on a PHP filename means non-page implementation, **not**
-  unused or safe to remove; trace includes, handlers and callers first.
-- Poorly named files may be noted, but a naming violation is not evidence of
-  redundancy or safe deletion.
-- Account for dynamic includes, routing, reflection, template conventions,
-  URL links, JS imports, CSS/Tailwind config, external deploy/CDN references,
-  cron jobs, autoloaders, PHP sessions and environment configuration.
-- Preserve user data, secrets, `.env`, caches required at runtime, vendor
-  dependencies, lockfiles, framework metadata and other critical artifacts.
-- Mark each finding as **High confidence**, **Needs verification** or
-  **Keep / no removal recommendation** with file path and concrete evidence.
-- Recommend a safe verification and rollback method; do not take action.
-- Conclude with concise candidate counts, risk level, prioritized findings
-  and a short list of uncertainties. Do not claim a clean project if checks
-  were limited.
-- Read `references/cleanup-checklist.md` when invoked for detailed search
-  scope, evidence rules, output format and high-risk exceptions.
-- This command is separate from `$website-structure-report` (architecture),
-  `$website-test-report` (quality) and `$website-format-code` (formatting).
+Invoke **only** when requested:
 
-Root `AGENTS.md` remains authoritative for project conventions.
+- `$website-cleanup-report` — efficient standard audit, covering all ten
+  categories at lightweight depth and deeply inspecting only clear candidates.
+- `$website-cleanup-report --deep` — broad necessity and simplification review,
+  including referenced code paths, side effects, runtime/deployment contracts,
+  and more complete dependency tracing when evidence is accessible.
+
+Both modes are **strictly read-only**. Never remove, rename, reformat, edit,
+install/uninstall, regenerate, or modify source, generated assets, Git state,
+indices, caches or configuration. No automatic fixes. Do not start this audit
+from `$website-workflow` or any other skill. An explicit separate user request
+is required for changes.
+
+## Required detection categories (both modes)
+
+1. Unreferenced files, code, assets, directories and dependencies.
+2. Referenced-but-unnecessary files/functions (trace callers and actual effects).
+3. Duplicate or functionally redundant implementations.
+4. Unnecessary components, wrappers and abstractions.
+5. Overengineered architecture and avoidable layers.
+6. Unnecessary third-party dependencies, considering build/runtime/scripts.
+7. JavaScript that is redundant or safely replaceable with native behavior.
+8. Legacy features still wired into the application but no longer serving a
+   confirmed requirement (do not presume old means obsolete).
+9. Pointless variables, transforms, no-op helpers and avoidable indirection.
+10. Excessive file splitting that complicates maintenance without clear benefit.
+
+## Evidence and safeguards
+
+- Start from a lightweight inventory, relevant entry points and Git metadata.
+  Prefer scoped searches and reuse valid existing Graphify data only when useful.
+  Do not build/update a graph for this read-only audit.
+- Do **not** equate "referenced" with "needed" or "unreferenced" with "safe
+  to delete". Trace behavior, consumers, dynamic entry points and potential
+  side effects before recommending removal.
+- Respect project rules: `_`-prefixed PHP implementation files, one enum per
+  choice category, form handlers, components, modular PHP arrays, Tailwind
+  build assets, sitemap/robots and security/accessibility/SEO features are not
+  redundant merely because they are small or not visibly rendered.
+- Never assume an external integration, background task or legacy capability
+  is unnecessary without evidence of its intended use.
+- Every finding needs file:line evidence where available, known consumers,
+  observed behavior, rationale, risk/impact, confidence (high/medium/low),
+  proposed simplification, and a manual verification plan.
+- Clearly label unverified conclusions and coverage exclusions. A limited
+  audit cannot justify a claim that the entire project is clean.
+- Standard mode: stop after useful targeted inspection; don't recursively read
+  everything. Deep mode: inspect more broadly, but avoid unnecessary repeated
+  reads, vendor trees and media binaries.
+- Follow `references/cleanup-checklist.md` for detailed operating procedure,
+  finding standards and report structure; consult it only when invoked.
+
+The command remains separate from `$website-structure-report`,
+`$website-test-report`, `$website-seo-report`, and `$website-format-code`.
+Root `AGENTS.md` remains authoritative.

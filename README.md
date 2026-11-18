@@ -20,7 +20,8 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
 | `$website-seo-report --visibility` | Observed Search Console/Bing visibility and optional competitor evidence | No |
 | `$website-structure-report` | Folder/code architecture review | No |
-| `$website-cleanup-report` | Find unnecessary/unused files, folders and code; no deletion | No |
+| `$website-cleanup-report` | Efficient unused **and used-but-unnecessary** code audit | No |
+| `$website-cleanup-report --deep` | Deeper referenced-code and architecture necessity review | No |
 | `$website-naming-fix --check` | Audit naming and underscore rules | No |
 | `$website-naming-fix` | Safely rename noncompliant files and update references | Yes, safe renames only |
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
@@ -351,3 +352,15 @@ with optional evidence-backed competitor research when requested. No mode
 creates fixes or reports rankings without evidence. Every report states
 page coverage, verification gaps and score confidence. See
 `.agents/skills/website-seo-report/references/seo-audit-modes-v2.md`.
+
+
+## Cleanup Report V2 (on demand only)
+
+Run `$website-cleanup-report` for efficient detection across ten categories,
+including referenced but unnecessary code, redundant functions, duplicate
+functionality, excessive abstractions, dependency bloat, obsolete features,
+pointless JavaScript, and unnecessary file splitting. Run
+`$website-cleanup-report --deep` for more thorough behavior tracing and
+architecture simplification analysis. Both are strictly read-only and require
+file/line evidence, confidence, risk and manual verification recommendations.
+Neither runs automatically during development.
