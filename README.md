@@ -18,10 +18,11 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-test-report` | Quality review with a 1–10 score | No |
 | `$website-seo-report` | SEO review with a 1–10 score | No |
 | `$website-structure-report` | Folder/code architecture review | No |
+| `$website-cleanup-report` | Find unnecessary/unused files, folders and code; no deletion | No |
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
 | `$website-format-code --check` | Report formatting problems | No |
 
-The test, SEO and structure reports are **on-demand**, not automatically
+The test, SEO, structure and cleanup reports are **on-demand**, not automatically
 run after development. They identify confirmed findings, provide evidence
 and recommend changes without applying fixes.
 
@@ -40,7 +41,7 @@ and recommend changes without applying fixes.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has eight website skills under `.agents/skills/`.
+The package has nine website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 

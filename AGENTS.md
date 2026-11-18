@@ -40,6 +40,8 @@
 - `$website-workflow`: develop/change site; task-scoped, batched edits.
 - `$website-test-report`, `$website-seo-report`, `$website-structure-report`:
   **opt-in, read-only**. Never run these automatically or fix findings.
+- `$website-cleanup-report`: **opt-in, read-only**. Identify possible unused
+  files, folders, code, assets and dependencies; never delete or modify.
 - `$website-format-code`: **opt-in**, formatting-only; `--check` is read-only.
   Never refactor architecture or alter runtime behavior during formatting.
 

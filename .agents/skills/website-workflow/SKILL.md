@@ -16,7 +16,7 @@ description: >-
 - For an existing site, inspect only relevant files and dependencies; use Graphify when useful and current.
 - For large tasks, batch by shared component or page, track completed units, make minimal diffs and avoid revisiting finished sections.
 - Preserve strict Tailwind-only rules; real `sitemap.xml`; PHP arrays/enums/handlers/components conventions in root `AGENTS.md`.
-- Do not run test, SEO or architecture reports unless separately requested.
+- Do not run test, SEO, architecture or cleanup reports unless separately requested.
 - Use targeted local checks, no automatic full project audit.
 - Read `DEVELOPMENT_EFFICIENCY.md` only when a task requires batching/migration details.
 - Read `CONTENT_ARCHITECTURE.md` when implementing arrays, handlers, enums or components.

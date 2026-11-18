@@ -489,3 +489,10 @@ Neither command runs automatically.
   small batches, relevant checks and short completion summaries.
 - See `TOKEN_EFFICIENT_MODE_V2.md` for policy and caveats.
 - All manual-only audit and format boundaries are unchanged.
+
+## New on-demand cleanup command
+
+After installing the complete `.agents/skills/` folder and restarting Codex,
+run `$website-cleanup-report` to inspect potentially unused files, folders,
+code, assets and dependencies. It is **read-only**: nothing is deleted or
+modified. Review its evidence and approve any subsequent cleanup separately.

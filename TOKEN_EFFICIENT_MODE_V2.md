@@ -35,3 +35,9 @@ It does **not** change model selection, bypass limits, or guarantee savings.
 - `$website-format-code` changes formatting only; `--check` changes nothing.
 - Detailed instructions remain in each skill's references and can be read
   when needed. No architecture/SEO/security checks were removed.
+
+## Manual cleanup analysis
+
+`$website-cleanup-report` performs a separate, on-demand, read-only inventory
+and evidence-based reference search. It uses narrow queries, does not require
+a full Graphify reindex, and does not modify the project.
