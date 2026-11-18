@@ -19,6 +19,8 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-seo-report` | SEO review with a 1–10 score | No |
 | `$website-structure-report` | Folder/code architecture review | No |
 | `$website-cleanup-report` | Find unnecessary/unused files, folders and code; no deletion | No |
+| `$website-naming-fix --check` | Audit naming and underscore rules | No |
+| `$website-naming-fix` | Safely rename noncompliant files and update references | Yes, safe renames only |
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
 | `$website-format-code --check` | Report formatting problems | No |
 
@@ -41,7 +43,7 @@ and recommend changes without applying fixes.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has nine website skills under `.agents/skills/`.
+The package has ten website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 
@@ -312,3 +314,27 @@ helpful; ordinary page HTML stays in its page. See `AGENTS.md` and
 - The structure report checks naming issues; the cleanup report does not
   assume badly named files are unused; the formatter never renames files.
 - Existing project files are **not** renamed automatically.
+
+## Strict filename enforcement and repair
+
+Every `$website-workflow` task now validates the names of newly created or
+renamed files before completion. PHP page routes have descriptive unprefixed
+names; PHP implementation files use a descriptive `_`-prefixed basename.
+
+To inspect a whole existing project **without changing anything**:
+
+```text
+$website-naming-fix --check
+```
+
+To check and repair the whole first-party project **when safe**:
+
+```text
+$website-naming-fix
+```
+
+The fix command updates relevant file references and performs targeted
+verification. Changes with uncertain routing, URLs, autoloading or deployment
+impact are reported as blocked, **not renamed blindly**. No files are
+deleted, and no unrelated formatting or architecture refactor is performed.
+See `FILE_NAMING.md` for full rules.

@@ -36,7 +36,10 @@
   pages/routes use descriptive names without a prefix (`contact.php`).
   Every non-page PHP implementation file must start with `_`
   (`components/_service-card.php`, `handlers/_contact.php`,
-  `enums/_ServiceType.php`, `data/_services.php`). Never rename or
+  `enums/_ServiceType.php`, `data/_services.php`). In `$website-workflow`,
+  classify and verify filenames for every new or
+  renamed file before task completion; repair safe naming errors in the
+  touched set, without scanning unrelated files. Never rename or
   reorganize existing files unless explicitly requested.
 - Preserve semantics and readable physical source lines (prefer <=88 chars,
   practical maximum 100). Do not reformat unrelated code.
@@ -48,6 +51,9 @@
   **opt-in, read-only**. Never run these automatically or fix findings.
 - `$website-cleanup-report`: **opt-in, read-only**. Identify possible unused
   files, folders, code, assets and dependencies; never delete or modify.
+- `$website-naming-fix`: **opt-in**, check and safely fix descriptive naming,
+  page filenames versus `_`-prefixed non-page PHP. `--check` is read-only;
+  never risk route/autoload/deployment breakage or rename uncertain files.
 - `$website-format-code`: **opt-in**, formatting-only; `--check` is read-only.
   Never refactor architecture or alter runtime behavior during formatting.
 

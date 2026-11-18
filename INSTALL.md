@@ -507,3 +507,12 @@ modified. Review its evidence and approve any subsequent cleanup separately.
 - The structure report checks naming issues; the cleanup report does not
   assume badly named files are unused; the formatter never renames files.
 - Existing project files are **not** renamed automatically.
+
+## Naming enforcement
+
+Keep `FILE_NAMING.md` in the project root along with `AGENTS.md`, and install
+`.agents/skills/website-naming-fix/` with the other project skills. Restart
+Codex to discover the command. The development workflow automatically checks
+new/touched filenames, but does not rename unrelated files. To migrate an
+existing website, invoke `$website-naming-fix --check` (read-only) and then
+`$website-naming-fix` (safe fixes, blocked risks reported).

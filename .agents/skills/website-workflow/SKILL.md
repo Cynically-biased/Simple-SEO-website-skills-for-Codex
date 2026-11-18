@@ -16,9 +16,20 @@ description: >-
 - For an existing site, inspect only relevant files and dependencies; use Graphify when useful and current.
 - For large tasks, batch by shared component or page, track completed units, make minimal diffs and avoid revisiting finished sections.
 - Preserve strict Tailwind-only rules; real `sitemap.xml`; PHP arrays/enums/handlers/components conventions in root `AGENTS.md`.
-- Give every new file a descriptive, responsibility-based name. Prefix all
-  non-page PHP files with `_`; keep public website page filenames unprefixed.
-  Read `FILE_NAMING.md` when creating or changing file structure.
+- **Mandatory naming gate for every created or renamed file**: before writing,
+  classify the file as a public PHP page/route versus non-page implementation;
+  choose a descriptive responsibility-based name. Public page PHP filenames
+  are unprefixed; **all new non-page PHP filenames start with `_`**, including
+  handlers, enums, components, data arrays, includes and partials.
+- Before completing the task, check **only created/renamed/touched filenames**
+  for naming compliance, plus any changed references; fix safe naming mistakes
+  within that task. Never silently rename unrelated pre-existing files.
+- Consult root `FILE_NAMING.md` for exceptions (routes, autoloading,
+  deployment). If an essential filename conflicts with the convention, report
+  the conflict and avoid breaking it; do not invent a workaround.
+- Do **not** automatically invoke `$website-naming-fix` or its project-wide
+  scan. That command is available when the user explicitly requests a
+  naming migration; routine development remains task-scoped.
 - Do not run test, SEO, architecture or cleanup reports unless separately requested.
 - Use targeted local checks, no automatic full project audit.
 - Read `DEVELOPMENT_EFFICIENCY.md` only when a task requires batching/migration details.

@@ -79,3 +79,18 @@ resolves underscored filenames when the project uses an autoloader.
   no automatic file changes.
 - Cleanup report: identify genuinely unused candidates based on evidence,
   independent of filename aesthetics; no automatic deletion.
+
+## Dedicated naming command (manual only)
+
+- `$website-naming-fix --check` audits filename conventions without any edits.
+- `$website-naming-fix` checks and **safely fixes** first-party naming
+  violations, updating verified references and checking affected files.
+- Block risky renames that can break URLs, form actions, Composer/autoload,
+  routing, deployment integrations or dynamic includes. Report the blocker
+  and obtain approval for the separate migration; never guess.
+- `$website-workflow` always applies the naming gate to newly created or
+  changed files and their references. It does **not** launch a project-wide
+  naming audit or auto-rename unrelated existing files.
+- `$website-structure-report` remains read-only and flags convention breaks;
+  `$website-format-code` never renames; `$website-cleanup-report` does not
+  interpret naming violations as deletion suggestions.

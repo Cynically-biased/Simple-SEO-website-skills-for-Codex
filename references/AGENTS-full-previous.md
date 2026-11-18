@@ -1,3 +1,5 @@
+> Current naming and commands: root `AGENTS.md` and `FILE_NAMING.md` take precedence; `$website-naming-fix` is opt-in.
+
 # Project instructions for Codex
 
 

@@ -15,6 +15,8 @@ description: >-
 - Audit filename clarity and the `_` prefix on every non-page PHP file;
   page route files stay unprefixed. Classify entry points from routing before
   flagging names; report evidence and potential rename impact only.
+  Mention `$website-naming-fix --check` for focused verification or
+  `$website-naming-fix` for an explicitly requested safe fix; do not invoke it.
 - Identify concrete violations with file/line evidence, applicable/not-applicable statuses and a 1–10 score.
 - Read `references/full-instructions.md` when invoked for the complete checklist and report format; inspect only necessary project files.
 
