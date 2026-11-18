@@ -63,3 +63,8 @@ This is task-size management, not a token quota or model switch.
 - Manual `$website-test-report`, `$website-seo-report`, and
   `$website-structure-report` stay opt-in and read-only.
 - `$website-format-code` stays separately invoked.
+
+## V2: Progressive disclosure
+
+Read `TOKEN_EFFICIENT_MODE_V2.md` only if task cost/inspection strategy needs
+clarification. Skills load their full instructions on demand, not by default.

@@ -44,6 +44,22 @@ The package has eight website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 
+## Structure checks and formatting boundaries
+
+`$website-structure-report` explicitly audits the architecture rules:
+one PHP backed enum file per distinct fixed-choice field domain;
+options and handler validation derived from enums; isolated form
+handlers; selectively reused components; appropriate `data/*.php`
+array files; and footer ownership. It reports evidence, applicability
+and a 1–10 score, **without changing files**.
+
+`$website-format-code` formats existing PHP enums, handlers,
+components, partials, data arrays and pages safely. Its `--check`
+variant is read-only. **Formatting never performs architectural
+refactoring**, creates enums, or relocates code; use a separate
+explicit development request for those changes. Both commands
+remain opt-in and do not run automatically.
+
 ## Installation in a website project
 
 1. Download or clone this repository.
@@ -236,3 +252,51 @@ the site root. Never use `sitemap.php` or a route/rewrite that
 generates a sitemap dynamically with PHP. Update the XML file
 when indexable pages change. The `$website-seo-report` command
 checks this requirement without editing the project.
+
+## Advanced SEO report (read-only)
+
+Run `$website-seo-report` in Codex to request a deeper audit of
+Google crawl/indexing signals, the physical `sitemap.xml`,
+truthful `<lastmod>` metadata, page titles, meta descriptions,
+search-result snippet candidates, content relevance, linking,
+schema and mobile/performance signals. The report offers a
+1–10 score with evidence, per-page suggestions, file locations
+and verification limits; it **never changes website files**.
+
+`<lastmod>` is optional, but should be accurate when used.
+Google ignores sitemap `<priority>` and `<changefreq>`; this
+audit does not reward them. Actual rankings, displayed Google
+results and field performance cannot be guaranteed or inferred
+solely from the codebase.
+
+
+## Modular centralized website content
+
+New websites follow [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md).
+Ordinary page content, markup and SEO metadata remain in the PHP page.
+Only repeated or substantial editable arrays are moved into modular
+PHP files such as `data/services.php` or `data/faqs.php` when helpful.
+No JSON content files are required. Footer content stays in its
+existing footer partial.
+
+## Form enums and reusable components
+
+Fixed-choice form fields use separate PHP 8.1+ string-backed enums under
+`enums/` (one file per distinct choice set). Form controls derive their
+options from `cases()`, and handlers validate submissions with
+`tryFrom()`; validate each multi-select entry. Reuse components only where
+helpful; ordinary page HTML stays in its page. See `AGENTS.md` and
+`CONTENT_ARCHITECTURE.md`.
+
+
+## Token-Efficient Mode V2 (latest)
+
+- Root `AGENTS.md` is now a concise rules index. Detailed earlier rules
+  remain in `references/AGENTS-full-previous.md`.
+- Each of the eight skills now has a shorter `SKILL.md`; its original full
+  instructions remain under that skill's `references/full-instructions.md`.
+- Codex should load only the relevant skill and on-demand reference sections.
+- Development uses minimal-diff edits, targeted reads, conditional Graphify,
+  small batches, relevant checks and short completion summaries.
+- See `TOKEN_EFFICIENT_MODE_V2.md` for policy and caveats.
+- All manual-only audit and format boundaries are unchanged.

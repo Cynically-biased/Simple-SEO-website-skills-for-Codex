@@ -430,3 +430,62 @@ accurate; the manual SEO report checks for violations.
 The detailed original SEO reference is preserved in the archive.
 Its optional dynamic PHP sitemap example is overridden by the
 new mandatory policy in `AGENTS.md` and the active skills.
+
+## Advanced SEO audit
+
+To run the extended, read-only Google search visibility audit:
+
+```text
+$website-seo-report
+```
+
+The skill reads its bundled
+`.agents/skills/website-seo-report/references/advanced-seo-audit.md`.
+It checks the static XML sitemap, optional but accurate
+`<lastmod>` values, titles, descriptions, snippet candidates,
+indexability and relevant technical SEO signals. It reports
+issues and suggested wording but makes no edits.
+
+
+## Selective PHP arrays for new websites
+
+- Include `CONTENT_ARCHITECTURE.md` in the project root.
+- Keep normal page copy, SEO metadata and markup in PHP page files.
+- Only extract repeated or substantial editable lists into focused
+  PHP files such as `data/services.php` and `data/faqs.php`.
+- Do not create website content JSON files or universal JSON loaders.
+- Keep footer content in `partials/_footer.php`.
+- Existing sites are not migrated unless the user asks.
+- See `CONTENT_ARCHITECTURE.md` for examples and security rules.
+
+## Form enums and reusable components
+
+Fixed-choice form fields use separate PHP 8.1+ string-backed enums under
+`enums/` (one file per distinct choice set). Form controls derive their
+options from `cases()`, and handlers validate submissions with
+`tryFrom()`; validate each multi-select entry. Reuse components only where
+helpful; ordinary page HTML stays in its page. See `AGENTS.md` and
+`CONTENT_ARCHITECTURE.md`.
+
+## Architecture-aware manual commands
+
+After installing, `$website-structure-report` explicitly checks
+PHP enum-per-choice-domain separation and form validation, handlers,
+components, modular PHP data arrays and the footer exception. It
+only reports findings; it never fixes them. `$website-format-code`
+formats files in all these folders without refactoring their
+structure, and `$website-format-code --check` makes no edits.
+Neither command runs automatically.
+
+
+## Token-Efficient Mode V2 (latest)
+
+- Root `AGENTS.md` is now a concise rules index. Detailed earlier rules
+  remain in `references/AGENTS-full-previous.md`.
+- Each of the eight skills now has a shorter `SKILL.md`; its original full
+  instructions remain under that skill's `references/full-instructions.md`.
+- Codex should load only the relevant skill and on-demand reference sections.
+- Development uses minimal-diff edits, targeted reads, conditional Graphify,
+  small batches, relevant checks and short completion summaries.
+- See `TOKEN_EFFICIENT_MODE_V2.md` for policy and caveats.
+- All manual-only audit and format boundaries are unchanged.
