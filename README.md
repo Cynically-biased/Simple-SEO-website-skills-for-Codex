@@ -16,7 +16,9 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | --- | --- | --- |
 | `$website-workflow` | Develop and modify websites | Yes, when requested |
 | `$website-test-report` | Quality review with a 1–10 score | No |
-| `$website-seo-report` | SEO review with a 1–10 score | No |
+| `$website-seo-report` | Efficient source-based SEO audit; provisional 1–10 score with coverage | No |
+| `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
+| `$website-seo-report --visibility` | Observed Search Console/Bing visibility and optional competitor evidence | No |
 | `$website-structure-report` | Folder/code architecture review | No |
 | `$website-cleanup-report` | Find unnecessary/unused files, folders and code; no deletion | No |
 | `$website-naming-fix --check` | Audit naming and underscore rules | No |
@@ -338,3 +340,14 @@ verification. Changes with uncertain routing, URLs, autoloading or deployment
 impact are reported as blocked, **not renamed blindly**. No files are
 deleted, and no unrelated formatting or architecture refactor is performed.
 See `FILE_NAMING.md` for full rules.
+
+## Three-mode SEO audit (manual, read-only)
+
+The default SEO command examines local metadata, the physical XML sitemap,
+content and important pages efficiently. `--full` adds rendered PHP and
+live URLs, structured-data and optional performance checks where access
+is available. `--visibility` uses authorized first-party search metrics,
+with optional evidence-backed competitor research when requested. No mode
+creates fixes or reports rankings without evidence. Every report states
+page coverage, verification gaps and score confidence. See
+`.agents/skills/website-seo-report/references/seo-audit-modes-v2.md`.

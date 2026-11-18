@@ -516,3 +516,13 @@ Codex to discover the command. The development workflow automatically checks
 new/touched filenames, but does not rename unrelated files. To migrate an
 existing website, invoke `$website-naming-fix --check` (read-only) and then
 `$website-naming-fix` (safe fixes, blocked risks reported).
+
+## SEO audit commands (optional, never automatic)
+
+- `$website-seo-report` — efficient source and available local render checks.
+- `$website-seo-report --full` — deep rendered/live checks when authorized.
+- `$website-seo-report --visibility` — actual search data when connected or
+  supplied; otherwise an evidence-gap report.
+
+SEO modes are strictly read-only. Source code alone cannot verify rankings,
+indexation, measured performance or displayed Google snippets.

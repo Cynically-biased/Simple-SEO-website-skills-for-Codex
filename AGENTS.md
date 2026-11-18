@@ -49,6 +49,9 @@
 - `$website-workflow`: develop/change site; task-scoped, batched edits.
 - `$website-test-report`, `$website-seo-report`, `$website-structure-report`:
   **opt-in, read-only**. Never run these automatically or fix findings.
+- `$website-seo-report` has default efficient, `--full` rendered/live, and
+  `--visibility` search-data modes. Never silently run deep/live modes;
+  report missing evidence instead of inventing verified search results.
 - `$website-cleanup-report`: **opt-in, read-only**. Identify possible unused
   files, folders, code, assets and dependencies; never delete or modify.
 - `$website-naming-fix`: **opt-in**, check and safely fix descriptive naming,

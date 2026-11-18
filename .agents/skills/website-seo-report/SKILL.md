@@ -1,24 +1,52 @@
 ---
 name: website-seo-report
 description: >-
-  Manually audit a website for Google and other search engines.
-  Score evidence-backed SEO quality from 1 to 10, prioritize
-  improvements, and never modify project files.
+  Manual read-only SEO auditing in three modes: efficient source and
+  locally rendered report (default); deep live-site verification (--full);
+  or evidenced search visibility and competitor research (--visibility).
+  Identify prioritized problems with coverage and confidence; never edit.
 ---
 
-# Manual read-only deep SEO report
+# Website SEO report — manual, read-only, evidence first
 
-- This is explicitly opt-in and **read-only**; do not fix or silently run it during development.
-- Examine actual static `sitemap.xml`, URL/canonical/indexability, `lastmod` validity, robots directives, titles, descriptions, search snippets, internal linking, schema, mobile and applicable performance evidence.
-- Do not imply guaranteed rankings or measured Google results without live/verified data.
-- Score evidence with a 1–10 rating and cite concrete files/lines and recommended fixes.
-- Read `references/full-instructions.md` and relevant parts of `references/advanced-seo-audit.md` when invoked, preserving the detailed audit criteria.
+Invoke explicitly as `$website-seo-report`, `$website-seo-report --full`,
+or `$website-seo-report --visibility`. Never run automatically during
+`$website-workflow` or change project files, even when defects are found.
+Do not create files, start persistent servers, modify data or deploy.
 
-## Progressive disclosure
+## Choose exactly one mode
 
-The full previous operational instructions are retained in
-`references/full-instructions.md`. Consult **relevant sections** when
-needed; for report/formatter invocations, read all necessary audit or
-formatting criteria before executing. Do not read unrelated skills.
+- **Default:** Efficient local source audit. Inventory routes from routing,
+  sitemap and page files; inspect representative templates and *all*
+  discoverable high-value pages. Inspect rendered HTML only when available
+  without intrusive setup; otherwise mark it UNVERIFIED. No live crawl,
+  competitor research, Search Console or Lighthouse by default.
+- **`--full`:** Deep technical audit. Include default criteria plus rendered
+  output of important PHP routes, systematic live URL/status/canonical/robots
+  comparisons, sitemap coverage and appropriate structured-data/performance
+  validations **only when accessible and authorized**. Do not silently
+  install tooling or conduct expensive, broad crawling; announce sampling or
+  environmental constraints. Missing tools/results = NOT VERIFIED.
+- **`--visibility`:** Real search performance: use authorized Search Console
+  or comparable first-party data when available, time windows, impressions,
+  clicks, CTR, average position, pages, queries and index coverage. Add
+  separate competitor/SERP research only when expressly requested or
+  accessible; do not scrape or fabricate. Without live data, provide an
+  evidence-gap report and setup steps, **not invented rankings or scores**.
 
-Root `AGENTS.md` is authoritative for the common invariants.
+## Shared safeguards and output
+
+- Read `references/seo-audit-modes-v2.md` for operational checklists and
+  scoring; then consult relevant sections of `references/advanced-seo-audit.md`
+  and `references/full-instructions.md`. V2 mode rules take precedence where
+  older references assume a single audit mode.
+- Verify physical static `sitemap.xml` (not sitemap.php); validate optional
+  truthful `<lastmod>` without penalizing absent optional tags heavily.
+- Distinguish source-code predictions from locally rendered and live evidence.
+  Never infer actual Google indexing, ranking, snippets, Core Web Vitals,
+  rich results, or SEO impact solely from source code.
+- Report inspected/discovered pages, coverage, evidence source, unresolved
+  checks and confidence; score only verifiable, applicable categories.
+- Give file/line or URL evidence, severity, suggested changes and optional
+  example titles/descriptions, but **do not fix or submit anything**.
+- Keep output concise and scans targeted to avoid unnecessary Codex usage.
