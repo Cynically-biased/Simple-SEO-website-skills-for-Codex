@@ -57,11 +57,16 @@
 - `$website-naming-fix`: **opt-in**, check and safely fix descriptive naming,
   page filenames versus `_`-prefixed non-page PHP. `--check` is read-only;
   never risk route/autoload/deployment breakage or rename uncertain files.
+- `$website-design-report` (default, `--deep`, `--regression`): **opt-in,
+  strictly read-only** visual/theme QA. Render or inspect real screenshots
+  when available; never invent visual findings, baselines or scores.
 - `$website-format-code`: **opt-in**, formatting-only; `--check` is read-only.
   Never refactor architecture or alter runtime behavior during formatting.
 
 ## Detailed references (read only when relevant)
 
+- `DESIGN_SYSTEM_TEMPLATE.md`: optional brand/theme reference template;
+  never create or update a project design baseline during a read-only audit.
 - `CONTENT_ARCHITECTURE.md`: PHP arrays, enums, handlers and components.
 - `FILE_NAMING.md`: descriptive filenames and `_` prefix for non-page PHP files.
 - `DEVELOPMENT_EFFICIENCY.md`: batching, work types and Graphify sync.

@@ -364,3 +364,30 @@ pointless JavaScript, and unnecessary file splitting. Run
 architecture simplification analysis. Both are strictly read-only and require
 file/line evidence, confidence, risk and manual verification recommendations.
 Neither runs automatically during development.
+
+## Visual Design QA (new 11th skill)
+
+Run manually in Codex:
+
+```text
+$website-design-report
+$website-design-report --deep
+$website-design-report --regression
+```
+
+- Standard: efficient theme, visual flaw, content-image relevance, desktop/
+  mobile and cross-page consistency check using representative pages.
+- Deep: important routes, responsive states, interaction patterns, visual
+  accessibility signals and key visitor journeys.
+- Regression: changed routes vs **approved existing** matching screenshots.
+  Without an approved baseline it reports **NOT COMPARABLE**, not an invented
+  visual comparison.
+
+All modes are **read-only, manual-only**. They do not edit files, capture/save
+project screenshots, invoke auto-fixes, run unrelated audits or start expensive
+whole-project scans. They require real rendered page/screenshot evidence for
+confident visual judgments. If browser/screenshot access is unavailable, the
+report labels checks NOT VERIFIED. `DESIGN_SYSTEM_TEMPLATE.md` is an optional
+reference for a separately user-approved, project-specific `DESIGN_SYSTEM.md`.
+The normal `$website-workflow` does only a lightweight changed-page design-fit
+check, not the full design report. See the skill's `references/` for details.

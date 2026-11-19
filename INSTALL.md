@@ -536,3 +536,22 @@ indexation, measured performance or displayed Google snippets.
 unnecessary code, duplicate behavior and overengineered architecture.
 
 Both commands are optional, read-only, and never delete or rewrite code.
+
+## Visual Design QA command
+
+The package now includes an 11th skill, `website-design-report`. To install,
+merge the complete `.agents/` folder and `AGENTS.md` as above. Keep
+`DESIGN_SYSTEM_TEMPLATE.md` in the root if you want a design baseline template.
+
+```text
+$website-design-report
+$website-design-report --deep
+$website-design-report --regression
+```
+
+Visual QA commands are manual-only and read-only. A browser or screenshots
+must actually be available to verify visual findings. A site-specific
+`DESIGN_SYSTEM.md` and approved screenshot baselines are optional and must
+be created in a separate, explicitly requested development task. The skill
+will not write or update them during an audit. Default mode samples distinct
+layouts to conserve usage; deep mode is opt-in.
