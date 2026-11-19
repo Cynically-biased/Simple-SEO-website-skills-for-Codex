@@ -413,3 +413,26 @@ report labels checks NOT VERIFIED. `DESIGN_SYSTEM_TEMPLATE.md` is an optional
 reference for a separately user-approved, project-specific `DESIGN_SYSTEM.md`.
 The normal `$website-workflow` does only a lightweight changed-page design-fit
 check, not the full design report. See the skill's `references/` for details.
+
+## One-command Visual QA V2 — native browser first
+
+Run `$website-design-report` without extra setup instructions. The skill
+attempts to discover the existing PHP site/preview, uses Codex's **native
+browser tools if they are actually available**, and otherwise checks existing
+screenshots. If no reliable rendered evidence is accessible, it reports
+`VISUAL NOT VERIFIED` rather than claiming to have inspected the appearance.
+
+- **Default**: up to three representative page templates at mobile and
+  desktop sizes; reuses available visual evidence and existing theme rules.
+- **`--deep`**: more important routes, tablet layouts, interactions and
+  visitor journeys, with stated coverage and limitations.
+- **`--regression`**: changed pages/components against existing approved,
+  comparable baselines; no invented before/after captures.
+- **All modes**: manual-only, read-only for site source, no Windows desktop
+  takeover, no external Playwright/plugin installation, concise findings with
+  evidence and Tailwind-only suggestions.
+
+Native browser availability depends on the Codex interface and permissions.
+An in-app browser may be visible; the skill cannot make it invisibly run
+headless or guarantee access to a Windows `localhost` from a cloud browser.
+See `.agents/skills/website-design-report/references/native-browser-execution.md`.

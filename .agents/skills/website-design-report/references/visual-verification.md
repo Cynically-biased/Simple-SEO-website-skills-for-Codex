@@ -12,6 +12,14 @@
    `DESIGN_SYSTEM_TEMPLATE.md`; writing `DESIGN_SYSTEM.md` is a separate,
    explicitly requested development action.
 
+## Browser execution and capture constraints
+
+Follow `native-browser-execution.md` first: Codex-native tools where present,
+existing screenshots second, source-only unverified fallback last. Never
+perform Windows desktop control, install external browser packages or
+claim browser capabilities that are not exposed. Use a small change-aware
+page sample and record coverage.
+
 ## Screenshot capture / comparison
 
 - Prefer user-provided or already existing screenshots/baselines; browser

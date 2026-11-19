@@ -555,3 +555,10 @@ must actually be available to verify visual findings. A site-specific
 be created in a separate, explicitly requested development task. The skill
 will not write or update them during an audit. Default mode samples distinct
 layouts to conserve usage; deep mode is opt-in.
+
+## Visual QA V2
+
+No external browser installation is required by the skill. Use the existing
+Codex-native browser/preview if exposed and permitted; otherwise the design
+report uses existing screenshots or marks visuals unverified. No desktop
+control or unauthorized tunneling. See the design-report skill reference.

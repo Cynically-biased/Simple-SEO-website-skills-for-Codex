@@ -35,7 +35,8 @@ description: >-
   nearby patterns where available; check imagery/text relevance, page flow,
   spacing, responsiveness and obvious mismatches. Do not assume a theme from
   code alone. Use existing screenshots when provided; do not launch a visual
-  audit, capture every page or generate a design score automatically.
+  audit, capture every page, invoke native browser automation solely for
+  this lightweight check, or generate a design score automatically.
 - If a project has an approved `DESIGN_SYSTEM.md`, follow it when designing
   changed UI. Otherwise preserve established patterns, avoid new competing
   styles, and do not silently create a theme baseline.

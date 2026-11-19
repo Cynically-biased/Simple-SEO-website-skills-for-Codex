@@ -2,7 +2,8 @@
 
 Produce a **read-only** report, not edits. Use this structure:
 
-1. Mode; source of visual evidence (URL/screenshot/tool), timestamp if known;
+1. Mode; inspection path (native browser / existing screenshots / source-only),
+   resource budget used, and source of visual evidence (URL/screenshot/tool), timestamp if known;
    theme baseline used (approved/inferred/none); and constraints.
 2. Coverage: routes/pages inspected vs discovered, unique templates,
    viewports, states, journeys, screenshots/baselines compared; NOT VERIFIED.
@@ -56,3 +57,11 @@ Report changed routes and shared components, matched baseline pairs,
 intentional differences, potential regressions and uncomparable cases.
 Never manufacture a before-image or claim pixel-perfect evaluation without
 an actual comparison tool.
+
+## Efficient output (Visual QA V2)
+
+In standard mode prioritize the top 5 supported findings, with a compact
+coverage summary and a single concise list of unverified areas. Do not
+spend tokens writing a paragraph for every passing category. If the native
+browser was unavailable, say so plainly and never present a source-only
+review as verified visual QA.

@@ -33,3 +33,12 @@
 - Strict Tailwind utility classes only; zero handwritten CSS.
 - Do not auto-update this reference during read-only audits.
 - The original brand guide and user directions override inferred choices.
+
+## Visual QA V2 preview reference (optional)
+- Existing locally accessible preview URL and startup information:
+- Representative routes and shared page templates:
+- Approved baseline screenshots and interaction states:
+- Temporary/volatile page elements affecting comparisons:
+
+These are optional user-maintained hints, not permission for the audit to
+write project files, start external services or expose local servers.
