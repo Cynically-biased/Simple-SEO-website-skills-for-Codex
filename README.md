@@ -19,6 +19,9 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-seo-report` | Efficient source-based SEO audit; provisional 1–10 score with coverage | No |
 | `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
 | `$website-seo-report --visibility` | Observed Search Console/Bing visibility and optional competitor evidence | No |
+| `$website-design-report` | Efficient visual/theme consistency audit of representative pages | No |
+| `$website-design-report --deep` | Expanded page, viewport, interaction and journey audit | No |
+| `$website-design-report --regression` | Compare changed pages with approved screenshots when available | No |
 | `$website-structure-report` | Folder/code architecture review | No |
 | `$website-cleanup-report` | Efficient unused **and used-but-unnecessary** code audit | No |
 | `$website-cleanup-report --deep` | Deeper referenced-code and architecture necessity review | No |
@@ -27,8 +30,8 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
 | `$website-format-code --check` | Report formatting problems | No |
 
-The test, SEO, structure and cleanup reports are **on-demand**, not automatically
-run after development. They identify confirmed findings, provide evidence
+The test, SEO, structure, cleanup and design reports are **on-demand**,
+not automatically run after development. They identify confirmed findings, provide evidence
 and recommend changes without applying fixes.
 
 ## What is included
@@ -39,6 +42,8 @@ and recommend changes without applying fixes.
   Search Console, XML sitemaps, robots.txt, Schema.org and privacy.
 - **Website testing and aftercare:** forms, mobile navigation,
   responsive layouts, server issues, accessibility and handoff checks.
+- **Visual Design QA:** optional rendered-page theme consistency, image and
+  content fit, visual defects, responsive behavior and regression checks.
 - **Code formatting:** source-level line breaks and indentation;
   aim for 88 characters per line without changing behavior.
 - **Graphify guidance:** targeted graph queries, reuse of existing
@@ -46,7 +51,7 @@ and recommend changes without applying fixes.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has ten website skills under `.agents/skills/`.
+The package has eleven website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 
@@ -140,6 +145,17 @@ $website-test-report
 Review the project, score its quality from 1 to 10, and list issues.
 ```
 
+Run a visual theme and design-quality review (no fixes):
+
+```text
+$website-design-report
+```
+
+For an in-depth audit or approved-baseline comparison, use
+`$website-design-report --deep` or `$website-design-report --regression`.
+Both modes remain read-only; screenshots or browser access are necessary
+for verified visual findings.
+
 Request a search-visibility audit (no fixes):
 
 ```text
@@ -201,6 +217,9 @@ See [GRAPHIFY.md](GRAPHIFY.md),
 │       ├── website-test-report/
 │       ├── website-seo-report/
 │       ├── website-structure-report/
+│       ├── website-cleanup-report/
+│       ├── website-naming-fix/
+│       ├── website-design-report/
 │       └── website-format-code/
 ├── .vscode/
 │   └── settings.json
@@ -208,6 +227,9 @@ See [GRAPHIFY.md](GRAPHIFY.md),
 ├── GRAPHIFY.md
 ├── GRAPHIFY_EFFICIENCY.md
 ├── GRAPHIFY_SYNC.md
+├── DESIGN_SYSTEM_TEMPLATE.md
+├── FILE_NAMING.md
+├── CONTENT_ARCHITECTURE.md
 ├── INSTALL.md
 └── README.md
 ```
@@ -295,11 +317,11 @@ helpful; ordinary page HTML stays in its page. See `AGENTS.md` and
 `CONTENT_ARCHITECTURE.md`.
 
 
-## Token-Efficient Mode V2 (latest)
+## Token-Efficient Mode V2
 
 - Root `AGENTS.md` is now a concise rules index. Detailed earlier rules
   remain in `references/AGENTS-full-previous.md`.
-- Each of the eight skills now has a shorter `SKILL.md`; its original full
+- Core skills use concise `SKILL.md` entry points; its original full
   instructions remain under that skill's `references/full-instructions.md`.
 - Codex should load only the relevant skill and on-demand reference sections.
 - Development uses minimal-diff edits, targeted reads, conditional Graphify,
@@ -365,7 +387,7 @@ architecture simplification analysis. Both are strictly read-only and require
 file/line evidence, confidence, risk and manual verification recommendations.
 Neither runs automatically during development.
 
-## Visual Design QA (new 11th skill)
+## Visual Design QA (11th skill)
 
 Run manually in Codex:
 
