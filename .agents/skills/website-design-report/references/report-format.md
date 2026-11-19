@@ -2,7 +2,7 @@
 
 Produce a **read-only** report, not edits. Use this structure:
 
-1. Mode; inspection path (native browser / existing screenshots / source-only),
+1. Mode; inspection path (CLI headless Edge/Chrome / existing screenshots / source-only),
    resource budget used, and source of visual evidence (URL/screenshot/tool), timestamp if known;
    theme baseline used (approved/inferred/none); and constraints.
 2. Coverage: routes/pages inspected vs discovered, unique templates,

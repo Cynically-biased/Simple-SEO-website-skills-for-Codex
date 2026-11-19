@@ -559,6 +559,15 @@ layouts to conserve usage; deep mode is opt-in.
 ## Visual QA V2
 
 No external browser installation is required by the skill. Use the existing
-Codex-native browser/preview if exposed and permitted; otherwise the design
+Headless Edge/Chrome via the bundled PowerShell script; otherwise the design
 report uses existing screenshots or marks visuals unverified. No desktop
 control or unauthorized tunneling. See the design-report skill reference.
+
+## Visual QA in PowerShell / Codex CLI
+
+No extra plugin is needed if Microsoft Edge or Chrome is already installed.
+The `website-design-report` skill includes a PowerShell screenshot script
+and selects it automatically when a visual audit is explicitly requested.
+Ensure a safe local PHP preview is running (or can be started) and Codex can
+read PNG images. No desktop Computer Use or browser installations are allowed.
+See `.agents/skills/website-design-report/references/cli-headless-execution.md`.

@@ -59,9 +59,10 @@
   never risk route/autoload/deployment breakage or rename uncertain files.
 - `$website-design-report` (default, `--deep`, `--regression`): **opt-in,
   strictly read-only** visual/theme QA. Automatically discover the project
-  preview; use Codex-native browser only if actually available, otherwise
-  reuse existing screenshots or label visual inspection unverified. Never
-  use desktop Computer Use, install external browser tools, or invent scores.
+  preview; from Codex CLI use the bundled PowerShell headless capture script
+  with an installed Edge/Chrome browser, then visually inspect screenshots.
+  Otherwise reuse trustworthy screenshots or mark unverified. Never use
+  desktop Computer Use, install new browser tools, or invent scores.
   Default to a small, changed/representative page sample.
 - `$website-format-code`: **opt-in**, formatting-only; `--check` is read-only.
   Never refactor architecture or alter runtime behavior during formatting.

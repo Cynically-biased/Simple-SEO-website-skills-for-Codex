@@ -3,7 +3,7 @@ name: website-design-report
 description: >-
   Manual, strictly read-only visual design QA for PHP/Tailwind websites.
   Check theme coherence, design flaws, content/image placement, responsive
-  layouts and user flow. Native-browser-first automatic discovery, bounded
+  layouts and user flow. CLI-first headless Edge/Chrome discovery, bounded
   checks, and optional --deep/--regression; manual only.
 ---
 
@@ -25,47 +25,49 @@ or cache writes into the project. A pre-existing, permitted preview may be
 used; only launch a local development server when safe, supported and already
 authorized by the session, without triggering installs or application mutations. No automatic audit from `$website-workflow` or any skill.
 
-## One-command automatic inspection (Visual QA V2)
+## One-command CLI headless inspection (Visual QA V3)
 
-When invoked, **execute the following steps without requesting routine setup
-information already discoverable from the project**. Never promise that a native
-browser is available; use only tools actually exposed in this Codex session.
+When invoked from **Codex CLI / PowerShell**, run this procedure automatically,
+within existing terminal permissions. No desktop app, Computer Use, browser
+plugin, Playwright or Selenium required.
 
-1. **Discover** the existing site entry point, runnable URL (if configured),
-   route list and approved `DESIGN_SYSTEM.md` from a narrow project inspection.
-   Read `references/native-browser-execution.md` for the exact decision tree.
-2. **Inspect natively first:** use Codex-provided browser/preview/screenshot
-   capabilities if actually available and permitted. Prefer an already running
-   preview. Never use Computer Use, remote desktop, mouse/keyboard control,
-   external browser integrations, or automatic Playwright/npm installations.
-3. **Fallback safely:** use existing supplied/project preview screenshots when
-   native rendering is unavailable; otherwise report `VISUAL NOT VERIFIED`.
-   Never pretend a browser was opened. Do not repeatedly ask the user to set
-   up tooling; report the specific missing capability once.
-4. **Scope intelligently:** normal mode inspects up to **3 distinct page
-   templates**, **mobile + desktop**, and only meaningful interaction states.
-   Prefer changed/representative pages, with homepage and a unique inner page.
-   In `--deep`, include important routes, tablet, flows and state variants as
-   justified by the request; declare any sampling or inspection cap.
-   In `--regression`, inspect only changed pages and their affected shared
-   components against *existing approved* comparable baselines.
-5. **Compare against the theme:** approved design reference first; otherwise
-   infer a labeled provisional theme from visible representative pages. Check
-   visual flaws, image/text meaning, page flow, theme conflicts, usability and
-   responsive defects using `references/design-checklist.md`.
-6. **Reuse evidence:** reuse already captured screenshots *only* when URL,
-   viewport, content, styles, assets and UI state are equivalent. Prefer one
-   browser session, no redundant rerenders, no repeated shared-component audit.
-   Do not store screenshots or cache in the project during a read-only audit.
-7. **Report compactly:** use `references/report-format.md`; include evidence,
-   exact route/viewport/section, severity, confidence and proposed Tailwind-only
-   remedy, plus coverage and unverified items. Summarize top findings, not long
-   descriptions of passing checks. Never fabricate visual scores.
+1. **Discover narrowly:** reuse a known local preview URL, or inspect the PHP
+   entry point, route configuration and existing server. Prefer the already
+   running local site; only start a safe temporary PHP development server if
+   allowed and required. Do not modify project files or trigger build/install.
+2. **Capture invisibly:** read `references/cli-headless-execution.md` and call
+   the bundled `scripts/capture-headless.ps1` via PowerShell. It locates an
+   existing Edge or Chrome executable and uses `--headless` screenshots at
+   requested viewport widths. It MUST NOT interact with the Windows desktop.
+3. **Inspect images:** open the produced screenshots using an image-capable
+   Codex tool *if one is exposed*. A screenshot existing on disk does not
+   mean Codex has visually inspected it. If no image-reading tool is
+   available, mark `VISUAL NOT VERIFIED` and offer screenshot paths.
+4. **Fallback:** if no headless-capable browser is installed, use already
+   available screenshots with verifiable context; otherwise provide a
+   source-only preliminary review labeled `VISUAL NOT VERIFIED`. Never
+   install browser tooling or change to desktop control without consent.
+5. **Budget:** default <=3 distinct page templates, mobile-width (~390 px)
+   and desktop (~1440 px), <=6 captures. Deep mode covers justified routes,
+   tablet, important states and journeys with a declared cap. Regression
+   compares changed pages only to genuinely approved, comparable baselines.
+   CLI screenshot flags alone do not simulate touch interactions or a mobile
+   user agent; label mobile captures as *mobile-width desktop-browser*.
+6. **Analyze:** use approved `DESIGN_SYSTEM.md` if present; otherwise infer
+   a provisional theme from actual captures, identify defects and theme
+   mismatches using `references/design-checklist.md`.
+7. **Report briefly:** cite route/viewport/screenshot evidence, severity,
+   confidence, applicable Tailwind-only recommendations and unverified areas.
+   Never invent a visual score. Avoid rerendering identical shared layouts.
 
-Read `references/visual-verification.md` only for comparisons/baselines,
-`references/native-browser-execution.md` for browser strategy, and
-`references/report-format.md` for the output contract. Load only relevant
-sections, not every skill or unrelated project files.
+All modes stay **manual-only** and read-only with respect to the website.
+Temporary screenshots and isolated browser profiles may be written under the
+OS temporary directory, never in the project. Remove temporary browser
+profiles and stop any preview server started solely for the audit.
+
+Only read the relevant detailed references for the selected mode:
+`references/cli-headless-execution.md`, `references/visual-verification.md`,
+`references/report-format.md` and the targeted design checklist.
 
 ## Boundaries
 

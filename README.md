@@ -1,3 +1,28 @@
+## Visual QA V3: PowerShell / Codex CLI (no plugin)
+
+`$website-design-report` uses an installed **Microsoft Edge or Google Chrome**
+headlessly from the Windows terminal. It does **not** depend on the Codex
+desktop browser, Computer Use, Playwright, Selenium or an added skill/plugin.
+
+The skill includes `.agents/skills/website-design-report/scripts/capture-headless.ps1`.
+Codex discovers a safe local website preview, captures at most three distinct
+page templates at mobile-width and desktop widths by default, and visually
+reviews screenshots **only if the CLI session has image-reading support**.
+If no installed browser or image inspection is available, it marks visual
+checks unverified, rather than inventing results.
+
+```text
+$website-design-report
+$website-design-report --deep
+$website-design-report --regression
+```
+
+A local PHP server must be available or safe to start; screenshot captures use
+temporary Windows files outside the project. `--deep` and `--regression` keep
+their existing capabilities subject to terminal browser limitations (basic
+headless screenshots alone do not exercise complex interactive states).
+All audits remain manual-only, read-only for project files and token-bounded.
+
 # Codex Website Skills — Graphify-First Workflow
 
 A reusable set of Codex skills for developing, reviewing and maintaining
@@ -414,7 +439,7 @@ reference for a separately user-approved, project-specific `DESIGN_SYSTEM.md`.
 The normal `$website-workflow` does only a lightweight changed-page design-fit
 check, not the full design report. See the skill's `references/` for details.
 
-## One-command Visual QA V2 — native browser first
+## One-command Visual QA V2 — CLI headless browser first
 
 Run `$website-design-report` without extra setup instructions. The skill
 attempts to discover the existing PHP site/preview, uses Codex's **native
@@ -432,7 +457,7 @@ screenshots. If no reliable rendered evidence is accessible, it reports
   takeover, no external Playwright/plugin installation, concise findings with
   evidence and Tailwind-only suggestions.
 
-Native browser availability depends on the Codex interface and permissions.
+CLI screenshot capture requires an installed Edge/Chrome browser and permission to run terminal commands. Actual visual evaluation also requires Codex CLI image inspection.
 An in-app browser may be visible; the skill cannot make it invisibly run
 headless or guarantee access to a Windows `localhost` from a cloud browser.
-See `.agents/skills/website-design-report/references/native-browser-execution.md`.
+See `.agents/skills/website-design-report/references/cli-headless-execution.md`.
