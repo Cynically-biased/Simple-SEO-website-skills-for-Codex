@@ -1,3 +1,6 @@
+> Historical reference only. The former website design audit skill was removed.
+> Do not invoke or recreate it; active root AGENTS.md takes precedence.
+
 > Current naming and commands: root `AGENTS.md` and `FILE_NAMING.md` take precedence; `$website-naming-fix` is opt-in.
 
 # Project instructions for Codex

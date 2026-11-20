@@ -537,41 +537,6 @@ unnecessary code, duplicate behavior and overengineered architecture.
 
 Both commands are optional, read-only, and never delete or rewrite code.
 
-## Visual Design QA command
-
-The package now includes an 11th skill, `website-design-report`. To install,
-merge the complete `.agents/` folder and `AGENTS.md` as above. Keep
-`DESIGN_SYSTEM_TEMPLATE.md` in the root if you want a design baseline template.
-
-```text
-$website-design-report
-$website-design-report --deep
-$website-design-report --regression
-```
-
-Visual QA commands are manual-only and read-only. A browser or screenshots
-must actually be available to verify visual findings. A site-specific
-`DESIGN_SYSTEM.md` and approved screenshot baselines are optional and must
-be created in a separate, explicitly requested development task. The skill
-will not write or update them during an audit. Default mode samples distinct
-layouts to conserve usage; deep mode is opt-in.
-
-## Visual QA V2
-
-No external browser installation is required by the skill. Use the existing
-Headless Edge/Chrome via the bundled PowerShell script; otherwise the design
-report uses existing screenshots or marks visuals unverified. No desktop
-control or unauthorized tunneling. See the design-report skill reference.
-
-## Visual QA in PowerShell / Codex CLI
-
-No extra plugin is needed if Microsoft Edge or Chrome is already installed.
-The `website-design-report` skill includes a PowerShell screenshot script
-and selects it automatically when a visual audit is explicitly requested.
-Ensure a safe local PHP preview is running (or can be started) and Codex can
-read PNG images. No desktop Computer Use or browser installations are allowed.
-See `.agents/skills/website-design-report/references/cli-headless-execution.md`.
-
 ## Manual AI source integrity review
 
 Run `$website-integrity-report` in Codex chat after installation. It asks
@@ -585,4 +550,4 @@ by this AI-only review.
 
 ## Reliability update
 
-Codex may read source with read-only terminal commands. Visual QA uses direct headless browser commands rather than `.ps1` execution. No change to Windows execution policy is needed. See `SKILL_RELIABILITY_UPDATE.md`.
+Codex may read source with read-only terminal commands. No change to Windows execution policy is needed. See `SKILL_RELIABILITY_UPDATE.md`.

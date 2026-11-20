@@ -1,28 +1,3 @@
-## Visual QA V3: PowerShell / Codex CLI (no plugin)
-
-`$website-design-report` uses an installed **Microsoft Edge or Google Chrome**
-headlessly from the Windows terminal. It does **not** depend on the Codex
-desktop browser, Computer Use, Playwright, Selenium or an added skill/plugin.
-
-The skill uses direct headless Edge/Chrome commands from `.agents/skills/website-design-report/references/cli-headless-execution.md` rather than a `.ps1` script.
-Codex discovers a safe local website preview, captures at most three distinct
-page templates at mobile-width and desktop widths by default, and visually
-reviews screenshots **only if the CLI session has image-reading support**.
-If no installed browser or image inspection is available, it marks visual
-checks unverified, rather than inventing results.
-
-```text
-$website-design-report
-$website-design-report --deep
-$website-design-report --regression
-```
-
-A local PHP server must be available or safe to start; screenshot captures use
-temporary Windows files outside the project. `--deep` and `--regression` keep
-their existing capabilities subject to terminal browser limitations (basic
-headless screenshots alone do not exercise complex interactive states).
-All audits remain manual-only, read-only for project files and token-bounded.
-
 # Codex Website Skills — Graphify-First Workflow
 
 A reusable set of Codex skills for developing, reviewing and maintaining
@@ -44,9 +19,6 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-seo-report` | Efficient source-based SEO audit; provisional 1–10 score with coverage | No |
 | `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
 | `$website-seo-report --visibility` | Observed Search Console/Bing visibility and optional competitor evidence | No |
-| `$website-design-report` | Efficient visual/theme consistency audit of representative pages | No |
-| `$website-design-report --deep` | Expanded page, viewport, interaction and journey audit | No |
-| `$website-design-report --regression` | Compare changed pages with approved screenshots when available | No |
 | `$website-structure-report` | Folder/code architecture review | No |
 | `$website-cleanup-report` | Efficient unused **and used-but-unnecessary** code audit | No |
 | `$website-cleanup-report --deep` | Deeper referenced-code and architecture necessity review | No |
@@ -56,9 +28,8 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
 | `$website-format-code --check` | Report formatting problems | No |
 
-The test, SEO, structure, cleanup and design reports are **on-demand**,
-not automatically run after development. They identify confirmed findings, provide evidence
-and recommend changes without applying fixes.
+The test, SEO, structure, cleanup, and integrity reports run only when requested.
+They provide evidence and recommendations without changing project files.
 
 ## What is included
 
@@ -68,8 +39,6 @@ and recommend changes without applying fixes.
   Search Console, XML sitemaps, robots.txt, Schema.org and privacy.
 - **Website testing and aftercare:** forms, mobile navigation,
   responsive layouts, server issues, accessibility and handoff checks.
-- **Visual Design QA:** optional rendered-page theme consistency, image and
-  content fit, visual defects, responsive behavior and regression checks.
 - **Code formatting:** source-level line breaks and indentation;
   aim for 88 characters per line without changing behavior.
 - **Graphify guidance:** targeted graph queries, reuse of existing
@@ -77,7 +46,7 @@ and recommend changes without applying fixes.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has twelve website skills under `.agents/skills/`.
+The package has eleven website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 
@@ -104,8 +73,6 @@ $website-integrity-report
 
 - Integrity: when the file-reading UI fails, inspect source using permitted
   read-only terminal commands; never rely on index references alone.
-- Visual QA: use direct headless Edge/Chrome terminal commands rather than a
-  `.ps1` file, avoiding Windows script execution-policy blocks.
 - Format: permit focused read-only PHP/JS syntax verification after edits.
 - Test: permit safe authorized isolated tests with temporary artifacts outside
   the repository, but no production side effects.
@@ -202,17 +169,6 @@ $website-test-report
 Review the project, score its quality from 1 to 10, and list issues.
 ```
 
-Run a visual theme and design-quality review (no fixes):
-
-```text
-$website-design-report
-```
-
-For an in-depth audit or approved-baseline comparison, use
-`$website-design-report --deep` or `$website-design-report --regression`.
-Both modes remain read-only; screenshots or browser access are necessary
-for verified visual findings.
-
 Request a search-visibility audit (no fixes):
 
 ```text
@@ -276,7 +232,6 @@ See [GRAPHIFY.md](GRAPHIFY.md),
 │       ├── website-structure-report/
 │       ├── website-cleanup-report/
 │       ├── website-naming-fix/
-│       ├── website-design-report/
 │       └── website-format-code/
 ├── .vscode/
 │   └── settings.json
@@ -284,7 +239,6 @@ See [GRAPHIFY.md](GRAPHIFY.md),
 ├── GRAPHIFY.md
 ├── GRAPHIFY_EFFICIENCY.md
 ├── GRAPHIFY_SYNC.md
-├── DESIGN_SYSTEM_TEMPLATE.md
 ├── FILE_NAMING.md
 ├── CONTENT_ARCHITECTURE.md
 ├── INSTALL.md
@@ -444,52 +398,3 @@ architecture simplification analysis. Both are strictly read-only and require
 file/line evidence, confidence, risk and manual verification recommendations.
 Neither runs automatically during development.
 
-## Visual Design QA (11th skill)
-
-Run manually in Codex:
-
-```text
-$website-design-report
-$website-design-report --deep
-$website-design-report --regression
-```
-
-- Standard: efficient theme, visual flaw, content-image relevance, desktop/
-  mobile and cross-page consistency check using representative pages.
-- Deep: important routes, responsive states, interaction patterns, visual
-  accessibility signals and key visitor journeys.
-- Regression: changed routes vs **approved existing** matching screenshots.
-  Without an approved baseline it reports **NOT COMPARABLE**, not an invented
-  visual comparison.
-
-All modes are **read-only, manual-only**. They do not edit files, capture/save
-project screenshots, invoke auto-fixes, run unrelated audits or start expensive
-whole-project scans. They require real rendered page/screenshot evidence for
-confident visual judgments. If browser/screenshot access is unavailable, the
-report labels checks NOT VERIFIED. `DESIGN_SYSTEM_TEMPLATE.md` is an optional
-reference for a separately user-approved, project-specific `DESIGN_SYSTEM.md`.
-The normal `$website-workflow` does only a lightweight changed-page design-fit
-check, not the full design report. See the skill's `references/` for details.
-
-## One-command Visual QA V2 — CLI headless browser first
-
-Run `$website-design-report` without extra setup instructions. The skill
-attempts to discover the existing PHP site/preview, uses Codex's **native
-browser tools if they are actually available**, and otherwise checks existing
-screenshots. If no reliable rendered evidence is accessible, it reports
-`VISUAL NOT VERIFIED` rather than claiming to have inspected the appearance.
-
-- **Default**: up to three representative page templates at mobile and
-  desktop sizes; reuses available visual evidence and existing theme rules.
-- **`--deep`**: more important routes, tablet layouts, interactions and
-  visitor journeys, with stated coverage and limitations.
-- **`--regression`**: changed pages/components against existing approved,
-  comparable baselines; no invented before/after captures.
-- **All modes**: manual-only, read-only for site source, no Windows desktop
-  takeover, no external Playwright/plugin installation, concise findings with
-  evidence and Tailwind-only suggestions.
-
-CLI screenshot capture requires an installed Edge/Chrome browser and permission to run terminal commands. Actual visual evaluation also requires Codex CLI image inspection.
-An in-app browser may be visible; the skill cannot make it invisibly run
-headless or guarantee access to a Windows `localhost` from a cloud browser.
-See `.agents/skills/website-design-report/references/cli-headless-execution.md`.

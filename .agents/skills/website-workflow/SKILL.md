@@ -30,17 +30,7 @@ description: >-
 - Do **not** automatically invoke `$website-naming-fix` or its project-wide
   scan. That command is available when the user explicitly requests a
   naming migration; routine development remains task-scoped.
-- For a page created or modified, perform a **lightweight design-fit check**
-  within the changed scope: compare existing brand/theme rules or visible
-  nearby patterns where available; check imagery/text relevance, page flow,
-  spacing, responsiveness and obvious mismatches. Do not assume a theme from
-  code alone. Use existing screenshots when provided; do not launch a visual
-  audit, capture every page, invoke native browser automation solely for
-  this lightweight check, or generate a design score automatically.
-- If a project has an approved `DESIGN_SYSTEM.md`, follow it when designing
-  changed UI. Otherwise preserve established patterns, avoid new competing
-  styles, and do not silently create a theme baseline.
-- Do not run test, SEO, architecture, cleanup or **design reports** unless
+- Do not run test, SEO, architecture, cleanup unless
   separately requested.
 - Use targeted local checks, no automatic full project audit.
 - Read `DEVELOPMENT_EFFICIENCY.md` only when a task requires batching/migration details.
