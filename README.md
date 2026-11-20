@@ -52,6 +52,7 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-cleanup-report --deep` | Deeper referenced-code and architecture necessity review | No |
 | `$website-naming-fix --check` | Audit naming and underscore rules | No |
 | `$website-naming-fix` | Safely rename noncompliant files and update references | Yes, safe renames only |
+| `$website-integrity-report` | Full-project corrupted code, encoding, symbol and syntax scan | No |
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
 | `$website-format-code --check` | Report formatting problems | No |
 
@@ -76,9 +77,27 @@ and recommend changes without applying fixes.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has eleven website skills under `.agents/skills/`.
+The package has twelve website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
+
+## Website integrity report (manual, read-only)
+
+Run `$website-integrity-report` in **Codex chat** to scan first-party source
+across the entire project for invalid UTF-8, replacement characters,
+suspected mojibake, unexpected control characters, mixed line endings,
+unresolved merge markers, PHP/JavaScript syntax errors (when parsers exist),
+and invalid JSON. It reports paths, line numbers, confidence and limitations.
+
+The skill includes a reusable PowerShell scanner at
+`.agents/skills/website-integrity-report/scripts/scan-integrity.ps1`.
+It scans deterministically without uploading all source to the model; Codex
+only investigates flagged results. Generated, vendor and binary files are
+excluded by default and listed as such. **No files are modified.**
+
+```text
+$website-integrity-report
+```
 
 ## Structure checks and formatting boundaries
 
