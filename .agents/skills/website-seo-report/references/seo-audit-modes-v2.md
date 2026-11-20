@@ -1,7 +1,9 @@
 # SEO audit V2 — mode-specific operating rules
 
-This document governs `$website-seo-report` in all modes and overrides older
-references where they conflict. Reports are **manual and strictly read-only**.
+This document governs `$website-seo-report` mode boundaries and scoring.
+For URL, routing, navigation and architecture checks, also follow
+`seo-url-architecture-v3.md`; it overrides older URL-related guidance
+where inconsistent. Other older references remain secondary. Reports are **manual and strictly read-only**.
 No source edits, generated reports in repo, sitemap submissions, account
 changes, installs, deploys, persistent services or broad automated actions.
 
@@ -10,7 +12,7 @@ changes, installs, deploys, persistent services or broad automated actions.
 1. Detect environment and constraints: project root, routing, PHP entrypoints,
    static sitemap(s), robots.txt, test-server/live URL availability, relevant
    tooling, and first-party analytics access. Do **not** assume access.
-2. Make a lightweight route inventory from explicit routes, public pages,
+2. Make a public URL/canonical/link inventory from explicit routes, public pages,
    sitemap URLs and internal links. Distinguish known, discovered, indexable,
    excluded and unknown. Protect against unbounded route/parameter enumeration.
 3. Reuse current project context and focused reads, not full-project dumps.

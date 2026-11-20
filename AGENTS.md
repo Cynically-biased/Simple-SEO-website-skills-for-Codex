@@ -35,6 +35,10 @@
 - Styling: **Tailwind utility classes only**. Zero custom CSS, inline styles,
   `<style>` tags or `@apply`. Keep any required Tailwind entry point minimal;
   do not edit generated CSS. Do not silently migrate legacy styles.
+- For created/changed public pages, keep route URLs, internal links,
+  canonical targets and sitemap URLs consistent. Source-code folder names and
+  `.php` extensions are not inherently SEO faults; avoid unrequested route
+  migrations.
 - Sitemap: a **real static `/sitemap.xml`**, never `sitemap.php` or a PHP
   endpoint. Include canonical, indexable URLs and maintain meaningful,
   truthful `<lastmod>` values where supported. Reference from `robots.txt`.
@@ -63,7 +67,9 @@
 - `$website-workflow`: develop/change site; task-scoped, batched edits.
 - `$website-test-report`, `$website-seo-report`, `$website-structure-report`:
   **opt-in, read-only**. Never run these automatically or fix findings.
-- `$website-seo-report` has default efficient, `--full` rendered/live, and
+- `$website-seo-report` checks public URL architecture, internal links,
+  sitemap/canonical/indexing consistency and rendered PHP where available.
+  It has default efficient, `--full` rendered/live, and
   `--visibility` search-data modes. Never silently run deep/live modes;
   report missing evidence instead of inventing verified search results.
 - `$website-cleanup-report` and `--deep`: **opt-in, read-only**. Identify unused and referenced-but-unnecessary code; never auto-fix. Identify possible unused

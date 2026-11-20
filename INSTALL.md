@@ -560,3 +560,14 @@ by this AI-only review.
 ## Reliability update
 
 Codex may read source with read-only terminal commands. No change to Windows execution policy is needed. See `SKILL_RELIABILITY_UPDATE.md`.
+
+## SEO URL and architecture enhancements (V3)
+
+Use the existing `$website-seo-report`, `--full` or `--visibility` commands.
+No additional plugins, commands or scripts are needed. The SEO audit now
+checks public route inventories, navigation and internal link discoverability,
+canonical/sitemap/redirect consistency, and rendered PHP output when it can
+be verified. The local standard mode remains efficient and read-only;
+`--full` only accesses authorized rendered/live environments.
+Read `website-seo-report/references/seo-url-architecture-v3.md` for scope
+and evidence requirements. Keep your existing static `sitemap.xml` policy.

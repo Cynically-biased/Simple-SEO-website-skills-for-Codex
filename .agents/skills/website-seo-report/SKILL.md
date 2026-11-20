@@ -4,7 +4,8 @@ description: >-
   Manual read-only SEO auditing in three modes: efficient source and
   locally rendered report (default); deep live-site verification (--full);
   or evidenced search visibility and competitor research (--visibility).
-  Identify prioritized problems with coverage and confidence; never edit.
+  Audit public URLs, architecture, sitemap/canonical/link consistency,
+  rendered PHP and search appearance with evidence; never edit.
 ---
 
 # Website SEO report — manual, read-only, evidence first
@@ -36,10 +37,14 @@ Do not create files, start persistent servers, modify data or deploy.
 
 ## Shared safeguards and output
 
-- Read `references/seo-audit-modes-v2.md` for operational checklists and
-  scoring; then consult relevant sections of `references/advanced-seo-audit.md`
+- Read `references/seo-audit-modes-v2.md` for mode rules and scoring, and
+  `references/seo-url-architecture-v3.md` for mandatory URL/route/link checks;
+  then consult relevant sections of `references/advanced-seo-audit.md`
   and `references/full-instructions.md`. V2 mode rules take precedence where
   older references assume a single audit mode.
+- Build a public URL inventory from actual routing, nav, canonicals,
+  sitemap and rewrites; cross-check URL consistency and links. Avoid treating
+  internal PHP folder names or `.php` extensions as ranking failures.
 - Verify physical static `sitemap.xml` (not sitemap.php); validate optional
   truthful `<lastmod>` without penalizing absent optional tags heavily.
 - Distinguish source-code predictions from locally rendered and live evidence.

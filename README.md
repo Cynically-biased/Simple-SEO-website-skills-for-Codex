@@ -17,7 +17,7 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-workflow` | Develop and modify websites; expressive creative direction for new builds | Yes, when requested |
 | `$website-creative-design` | Optional direct creative-direction / Tailwind website design skill | When asked to implement |
 | `$website-test-report` | Quality review with a 1–10 score | No |
-| `$website-seo-report` | Efficient source-based SEO audit; provisional 1–10 score with coverage | No |
+| `$website-seo-report` | Efficient URL architecture, internal links, sitemap/canonical and on-page SEO audit | No |
 | `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
 | `$website-seo-report --visibility` | Observed Search Console/Bing visibility and optional competitor evidence | No |
 | `$website-structure-report` | Folder/code architecture review | No |
@@ -31,6 +31,29 @@ Use these commands in the **Codex chat**, not in PowerShell.
 
 The test, SEO, structure, cleanup, and integrity reports run only when requested.
 They provide evidence and recommendations without changing project files.
+
+
+## SEO V3 — public URL and website architecture intelligence
+
+The existing commands remain **manual and read-only**:
+
+- `$website-seo-report` — efficient inventory of public PHP routes, URLs,
+  canonical declarations, `sitemap.xml`, internal links, important page
+  architecture and metadata. Reports verified versus unverified coverage.
+- `$website-seo-report --full` — deeper rendered/live validation of public
+  URLs, redirects, response codes, robots directives, link targets and
+  sitemap differences where tools and permission allow.
+- `$website-seo-report --visibility` — compares real authorized Search
+  Console/Bing landing-page data with the site's public URL inventory.
+
+The audit detects potential orphan pages, URL duplicates, weak navigation,
+canonical mismatches, indexability conflicts, and rendered PHP SEO mistakes.
+It **does not** call `.php` extensions, internal PHP folder names, URL depth,
+or missing optional XML tags ranking failures. It never silently changes
+existing public routes. Migration suggestions include redirect requirements.
+
+Full operational details: `.agents/skills/website-seo-report/references/
+seo-url-architecture-v3.md` and `seo-audit-modes-v2.md`.
 
 ## What is included
 

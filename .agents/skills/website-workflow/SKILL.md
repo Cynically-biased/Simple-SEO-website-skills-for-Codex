@@ -25,6 +25,10 @@ description: >-
 - For an existing site, inspect only relevant files and dependencies; use Graphify when useful and current.
 - For large tasks, batch by shared component or page, track completed units, make minimal diffs and avoid revisiting finished sections.
 - Preserve strict Tailwind-only rules; real `sitemap.xml`; PHP arrays/enums/handlers/components conventions in root `AGENTS.md`.
+- For created/modified public routes, keep URL slugs, internal links,
+  canonicals, redirects and static sitemap consistent; avoid unrelated URL
+  migrations. Internal PHP filenames are not automatically public URLs.
+  Consult the focused SEO URL reference only for routing/SEO tasks.
 - **Mandatory naming gate for every created or renamed file**: before writing,
   classify the file as a public PHP page/route versus non-page implementation;
   choose a descriptive responsibility-based name. Public page PHP filenames
