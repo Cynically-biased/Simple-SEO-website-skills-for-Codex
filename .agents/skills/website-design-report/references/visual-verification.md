@@ -15,7 +15,7 @@
 ## Browser execution and capture constraints
 
 Follow `cli-headless-execution.md` first: use installed Edge/Chrome via the
-bundled PowerShell headless script in Codex CLI; existing screenshots second,
+direct Edge/Chrome headless terminal commands in Codex CLI; existing screenshots second,
 source-only unverified fallback last. Never perform Windows desktop control,
 install external browser packages or pretend a created screenshot was visually
 inspected. Use a small change-aware page sample and record coverage.

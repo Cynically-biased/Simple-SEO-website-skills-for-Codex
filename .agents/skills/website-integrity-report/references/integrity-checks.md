@@ -1,8 +1,9 @@
 # AI-led integrity inspection reference
 
 The goal is to spot **unintended source damage**, especially after PowerShell
-file rewrites or AI-generated edits. Do not execute a bundled scanner, invoke
-shell commands, or alter any file.
+file rewrites or AI-generated edits. Do not execute bundled scanners or alter
+project files. Read-only terminal commands for opening/searching files and Git
+history are allowed when native file-read tools cannot access content.
 
 ## Potential signals
 
@@ -24,8 +25,8 @@ shell commands, or alter any file.
 Inspect all accessible first-party source files in manageable batches; do not
 load a whole large repository into context at once. Track which files were
 actually read, sampled, inaccessible or excluded. Spot-check referenced code
-around suspicious sections. Read-only file-navigation/search tools are fine;
-no script execution or shell-based scanner fallback.
+around suspicious sections. Read-only file-navigation/search tools **and read-only terminal commands**
+are fine; do not run packaged scanner scripts or change execution policy.
 
 Viewing decoded text alone **cannot prove valid UTF-8, byte-order marks or
 absence of invisible bytes**. Structural suspicion is not proof of root cause.

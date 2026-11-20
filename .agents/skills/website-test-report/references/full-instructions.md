@@ -24,8 +24,12 @@ user explicitly asks for this specific scored audit.
   Do not run those unless configured for provably read-only use.
 - Never submit real forms, send email, alter databases, access
   production credentials or perform live destructive actions.
-- If a check needs browser access, a running server, credentials,
-  a deployment, or writes, mark it **NOT RUN** and explain why.
+- If a check requires browser access, server startup, credentials or writes,
+  determine whether a previously authorized **isolated, non-production** check
+  can run without modifying project files or real app state. Temporary test
+  artifacts may be placed outside the project when explicitly safe, isolated
+  and disposable. Never run tests that submit real forms, email, payments or
+  modify databases. Otherwise mark the check **NOT RUN** and explain why.
 - Never claim to have run a test that was not executed.
 - Report suggested fixes in text only; ask permission separately
   before any future repair, and do not apply repairs in this run.
@@ -47,7 +51,9 @@ in the project, and distinguish unsupported from failing checks.
 
 1. Identify the project scope, its entry points, language versions,
    routes, handlers, CSS, JavaScript and available test scripts.
-2. Check changed and/or relevant code without editing anything.
+2. Establish the requested scope: targeted by default; if the user explicitly
+   asks for the entire project, enumerate all eligible first-party source and
+   track inspected, excluded and not-verified files without silently sampling.
 3. Inspect for PHP/JS bugs, unsafe output, user-input handling,
    forms, redirects, sessions, authentication, and error handling.
 4. Assess navigation, responsive breakpoints, accessibility,
@@ -135,5 +141,6 @@ Avoid repeated queries and whole-project code dumps.
 
 This command is read-only: never rebuild/refresh an on-disk
 index or run tools that write files. If no usable graph exists,
-inspect a bounded set of relevant files and report limitations.
+inspect relevant source files directly; for full-project requests, enumerate
+and cover each eligible file where practical, reporting any coverage gaps.
 Do not silently claim the full project was inspected.

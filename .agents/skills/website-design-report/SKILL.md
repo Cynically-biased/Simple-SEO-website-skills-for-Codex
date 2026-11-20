@@ -35,10 +35,12 @@ plugin, Playwright or Selenium required.
    entry point, route configuration and existing server. Prefer the already
    running local site; only start a safe temporary PHP development server if
    allowed and required. Do not modify project files or trigger build/install.
-2. **Capture invisibly:** read `references/cli-headless-execution.md` and call
-   the bundled `scripts/capture-headless.ps1` via PowerShell. It locates an
-   existing Edge or Chrome executable and uses `--headless` screenshots at
-   requested viewport widths. It MUST NOT interact with the Windows desktop.
+2. **Capture invisibly:** read `references/cli-headless-execution.md` and use
+   direct, permitted PowerShell **commands** to locate installed Edge/Chrome
+   and launch its executable with `--headless --screenshot`. Do **not** execute
+   any `.ps1` script or change PowerShell execution policy. The browser must
+   not interact with the Windows desktop. If commands are unavailable, use
+   existing reliable captures or mark VISUAL NOT VERIFIED.
 3. **Inspect images:** open the produced screenshots using an image-capable
    Codex tool *if one is exposed*. A screenshot existing on disk does not
    mean Codex has visually inspected it. If no image-reading tool is

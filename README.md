@@ -4,7 +4,7 @@
 headlessly from the Windows terminal. It does **not** depend on the Codex
 desktop browser, Computer Use, Playwright, Selenium or an added skill/plugin.
 
-The skill includes `.agents/skills/website-design-report/scripts/capture-headless.ps1`.
+The skill uses direct headless Edge/Chrome commands from `.agents/skills/website-design-report/references/cli-headless-execution.md` rather than a `.ps1` script.
 Codex discovers a safe local website preview, captures at most three distinct
 page templates at mobile-width and desktop widths by default, and visually
 reviews screenshots **only if the CLI session has image-reading support**.
@@ -90,16 +90,27 @@ It looks for mangled symbols, visible mojibake, accidental literal escape
 sequences, broken strings or tags, suspicious cut-off blocks, merge markers
 and unexpected changes in referenced code.
 
-**No PowerShell scanner or other executable is required or invoked.** The
-agent uses file browsing and reading to investigate evidence in manageable
-batches. The report lists what was inspected and any gaps; it cannot prove
-byte-level encoding validity or runtime syntax correctness without tools
-that this no-command review deliberately does not execute. No files are
+**No bundled PowerShell scanner is used.** The agent reads source through
+Codex file tools or read-only terminal commands (`Get-Content`, `Select-String`,
+Git history) without changing the project. The report lists what was inspected and any gaps; it cannot prove
+byte-level encoding validity or runtime syntax correctness without verified byte-level or parser evidence. No files are
 modified or repaired.
 
 ```text
 $website-integrity-report
 ```
+
+## Skill reliability fixes
+
+- Integrity: when the file-reading UI fails, inspect source using permitted
+  read-only terminal commands; never rely on index references alone.
+- Visual QA: use direct headless Edge/Chrome terminal commands rather than a
+  `.ps1` file, avoiding Windows script execution-policy blocks.
+- Format: permit focused read-only PHP/JS syntax verification after edits.
+- Test: permit safe authorized isolated tests with temporary artifacts outside
+  the repository, but no production side effects.
+- Whole-project audits: enumerate all eligible files and disclose coverage.
+- Historical examples never override current Tailwind, sitemap or PHP rules.
 
 ## Structure checks and formatting boundaries
 

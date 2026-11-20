@@ -16,6 +16,7 @@ description: >-
 - Do not add/remove `_` filename prefixes or update imports/includes; filename
   convention problems belong in `$website-structure-report`, not formatting.
 - Make minimal formatting diffs and avoid unrelated files; no automatic audits.
+- After edits, allow only targeted, non-mutating PHP/JS syntax checks on changed files when available; no autofix or broad tests.
 - Read `references/full-instructions.md` when invoked for detailed safety checks and supported formatting patterns.
 
 ## Progressive disclosure

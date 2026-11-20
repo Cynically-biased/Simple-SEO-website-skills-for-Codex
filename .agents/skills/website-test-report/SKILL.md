@@ -9,7 +9,8 @@ description: >-
 # Manual read-only code-quality report
 
 - This is explicitly opt-in and **read-only**: never edit, repair, format, sync or regenerate anything.
-- Inspect the relevant files and report evidenced issues with file/line, impact and suggested fix.
+- Inspect relevant files (or all eligible first-party files for an explicit project-wide audit); report coverage and evidenced issues with file/line, impact and suggested fix.
+- Permit safe, authorized non-mutating lint/tests and isolated temporary artifacts outside the project; never change application or production state.
 - Provide a transparent overall 1–10 score and note unknown/unverified checks.
 - Never run this automatically during `$website-workflow`.
 - Read `references/full-instructions.md` when this report is invoked to preserve its complete scoring/output requirements; read only applicable project sources.

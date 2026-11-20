@@ -95,9 +95,12 @@ no Graphify refresh or formatting configuration changes.
   unrelated non-source files unless the user explicitly asks.
 - Respect existing formatter configuration if present; do not
   install new tools or use formatters that change semantics.
-- Do not run tests, linters, browsers, audits, servers, scoring,
-  deployment or other automated quality checks. This command is
-  a manual **source-formatting pass only**.
+- Do not run unrelated tests, browser audits, servers, scoring or deployment.
+  After a formatting edit, **allow focused, non-mutating syntax verification**
+  on files that changed (e.g. `php -l path/to/file.php`, `node --check
+  path/to/file.js` when supported). Do not run autofix linters, wide tests,
+  build pipelines, or tools that generate project artifacts. Skip verification
+  if unavailable and state that it was not run. `--check` remains read-only.
 - Do not stage, commit, push, or publish files.
 - If a line cannot safely be split, **leave it unchanged** and
   report its file and line number rather than risking breakage.
@@ -128,7 +131,7 @@ architecture audit, request `$website-structure-report`.
 
 ### Notes
 - Only layout/whitespace formatting changed.
-- Tests and SEO audits were not run.
+- No full tests or SEO audits were run; list any targeted, read-only syntax checks and results.
 - If unable to safely guarantee a change is formatting-only,
   restore the affected part and report it as unchanged.
 

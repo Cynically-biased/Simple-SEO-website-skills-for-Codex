@@ -59,14 +59,30 @@
   never risk route/autoload/deployment breakage or rename uncertain files.
 - `$website-design-report` (default, `--deep`, `--regression`): **opt-in,
   strictly read-only** visual/theme QA. Automatically discover the project
-  preview; from Codex CLI use the bundled PowerShell headless capture script
-  with an installed Edge/Chrome browser, then visually inspect screenshots.
+  preview; from Codex CLI use direct headless Edge/Chrome terminal commands
+  (no `.ps1` script), then visually inspect screenshots.
   Otherwise reuse trustworthy screenshots or mark unverified. Never use
   desktop Computer Use, install new browser tools, or invent scores.
   Default to a small, changed/representative page sample.
-- `$website-integrity-report`: **opt-in, read-only** full-project source integrity scan. Have the AI review first-party source for suspicious PowerShell/rewrite damage, mangled symbols and broken code using file reads only; no scanner scripts or command execution. State coverage limitations. No repairs or other audits.
+- `$website-integrity-report`: **opt-in, read-only** full-project source integrity scan. Have the AI review first-party source for suspicious PowerShell/rewrite damage, mangled symbols and broken code using native file reads or read-only terminal commands; no bundled scanner or automatic repair. State coverage limitations. No repairs or other audits.
 - `$website-format-code`: **opt-in**, formatting-only; `--check` is read-only.
   Never refactor architecture or alter runtime behavior during formatting.
+
+## Tool access, project-wide coverage and historical rules
+
+- If the file-reading UI is unavailable, use authorized **read-only terminal**
+  commands to inspect actual source (`Get-Content`, `Select-String`, `git diff`,
+  `git show`, equivalents). Do not mistake PowerShell commands for executing
+  blocked `.ps1` scripts. Never change execution policy or bypass permissions.
+- Explicit full-project audits must enumerate eligible first-party files and
+  disclose files inspected, skipped or excluded. Batch efficiently, but never
+  silently replace a requested full scan with a small sample.
+- After authorized formatter edits, focused non-mutating syntax verification
+  (`php -l`, `node --check`) is allowed. Read-only test reports may run
+  authorized isolated checks, with disposable artifacts outside the repository,
+  if they do not modify production or project state.
+- Historical reference examples may use old custom CSS, JSON content or PHP
+  sitemap practices. Current root conventions supersede contradictory examples.
 
 ## Detailed references (read only when relevant)
 

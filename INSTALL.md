@@ -582,3 +582,7 @@ script, scanner, executable, software installation or execution-policy change
 is required.** It is read-only and reports the files actually inspected.
 Byte-level encoding validity and parser/runtime correctness remain unverified
 by this AI-only review.
+
+## Reliability update
+
+Codex may read source with read-only terminal commands. Visual QA uses direct headless browser commands rather than `.ps1` execution. No change to Windows execution policy is needed. See `SKILL_RELIABILITY_UPDATE.md`.

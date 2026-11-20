@@ -24,11 +24,15 @@ implicitly from `$website-workflow` or another audit.
    inaccessible files. Exclude third-party, generated, minified, caches,
    `.git` internals, `.agents` skill files and binary/media files from code
    inspection by default, and name these exclusions.
-2. **Do not invoke `scan-integrity.ps1` or any other scanner. Do not run
-   PowerShell, shell, PHP, Node, Python or other scripts/commands for this
-   report. Do not install utilities or change execution policies.** Use
-   Codex's ordinary file-reading, navigation and search capabilities only.
-   If file contents cannot be accessed, report incomplete coverage.
+2. Read **actual source content**, not merely search-index references. Prefer
+   Codex file browsing and reading. If that interface is unavailable, use
+   **read-only terminal commands** such as PowerShell `Get-Content -LiteralPath`,
+   `Select-String`, `Get-ChildItem`, `git diff`, `git show`, `git grep`, or
+   equivalent shell reads. Reading files in the terminal does **not** require
+   enabling PowerShell script execution. Do not invoke bundled `.ps1` scanner
+   scripts, change execution policies, install tools, or execute source files.
+   If no legitimate source-reading method is available, report incomplete
+   coverage and do not pretend the index alone proves code integrity.
 3. Examine source for suspicious corruption introduced by past PowerShell
    commands, file encodings, line-based replacements or AI rewrites, including
    broken quoting/backticks, literal escape sequences like `\n` where
@@ -40,13 +44,15 @@ implicitly from `$website-workflow` or another audit.
    identifiers or markup, unresolved merge markers, malformed PHP/HTML/JS,
    missing brackets, suspicious PHP tag boundaries and damaged string
    literals. Inspect nearby context to avoid false positives.
-5. Use Git diffs/history **only if already available through read-only
-   project tools**, to help identify suspicious rewrites; lack of Git history
+5. Use Git diffs/history through read-only project tools **or read-only
+   terminal commands**, to help identify suspicious rewrites; lack of Git history
    is not itself an issue. Never infer the original intended code solely
    from a strange-looking line.
-6. For efficiency, review representative file content and search hits in
-   batches, then inspect suspicious locations and their immediate consumers
-   more closely. Do not repeatedly reread unchanged files or perform
+6. For efficiency, enumerate every eligible first-party file, then use
+   targeted searches and bounded reads to assess each one; inspect suspicious
+   locations and immediate consumers more closely. For an explicit full-project
+   command, do not silently sample and imply complete coverage: count eligible,
+   inspected, excluded, inaccessible and sampled files separately. Do not repeatedly reread unchanged files or perform
    unrelated SEO/structure/format/design audits. **Do not claim complete
    line-by-line coverage unless it actually occurred.**
 7. Produce the report defined below. Do not modify, reformat, rename,
@@ -62,9 +68,11 @@ implicitly from `$website-workflow` or another audit.
 - Reading displayed text alone cannot reliably establish invalid UTF-8 bytes,
   BOM presence, binary damage or executable correctness. Do not claim such
   checks passed without appropriate evidence; label them **NOT VERIFIED**.
-- This is an AI review, not a replacement for `php -l`, a JS parser, runtime
-  testing or strict byte-level encoding validation. These checks are outside
-  this command's no-script/no-command scope.
+- This is primarily an AI review, not a substitute for byte-level validation
+  or runtime testing. Optional **non-mutating** `php -l` or `node --check`
+  may corroborate a specific suspicious file when installed and authorized;
+  avoid app execution and tools that write project artifacts. Report unrun
+  parser/encoding checks as NOT VERIFIED.
 
 ## Report output
 
