@@ -64,7 +64,7 @@
   Otherwise reuse trustworthy screenshots or mark unverified. Never use
   desktop Computer Use, install new browser tools, or invent scores.
   Default to a small, changed/representative page sample.
-- `$website-integrity-report`: **opt-in, read-only** full-project source integrity scan. Use deterministic encoding/character/merge-marker/parser checks; inspect only flagged evidence. No automatic repairs or other audits.
+- `$website-integrity-report`: **opt-in, read-only** full-project source integrity scan. Have the AI review first-party source for suspicious PowerShell/rewrite damage, mangled symbols and broken code using file reads only; no scanner scripts or command execution. State coverage limitations. No repairs or other audits.
 - `$website-format-code`: **opt-in**, formatting-only; `--check` is read-only.
   Never refactor architecture or alter runtime behavior during formatting.
 

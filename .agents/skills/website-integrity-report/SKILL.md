@@ -1,55 +1,81 @@
 ---
 name: website-integrity-report
 description: >-
-  Manual, read-only whole-project code and text integrity audit. Detect invalid
-  UTF-8, suspicious corrupted symbols, mojibake, conflict markers, bad line
-  endings, broken source syntax and other evidence of damaged files. Uses a
-  bundled deterministic PowerShell scanner and targeted inspection only.
+  Manual, read-only, AI-led inspection of existing project source files for
+  corruption, mangled characters and code damage introduced by PowerShell,
+  text encoding changes, copy/paste or automated code rewrites. No bundled
+  scanner, script execution, new dependencies or file modifications.
 ---
 
-# Website integrity report (manual, read-only)
+# Website integrity report — AI inspection, no scanner
 
-Invoke **only** via `$website-integrity-report`. Do not run on normal
-`$website-workflow`, formatting, cleanup, test, SEO or design operations.
+Invoke **only** through `$website-integrity-report`. This command asks the
+Codex agent to **inspect project files directly**, not to run a packaged
+PowerShell scanner. It is an opt-in, read-only report; never run it
+implicitly from `$website-workflow` or another audit.
 
-## Scope and procedure
+## Required process
 
-1. Scan the entire first-party project source tree, not just Git-changed files.
-   Exclude `.git`, `node_modules`, `vendor`, `.agents`, build outputs, generated,
-   minified, caches and binary/media contents by default; **list exclusions**.
-   Do not assume excluded files have been inspected. Include app PHP, HTML,
-   JavaScript, JSON, CSS/config, templates and text resources as appropriate.
-2. On Windows PowerShell, prefer the bundled scanner:
-   `powershell -NoProfile -File .agents/skills/website-integrity-report/scripts/scan-integrity.ps1 -Root .`
-   It is read-only, creates no project artifacts, and uses installed `php`/
-   `node` if available. If execution is restricted or tools are unavailable,
-   report this; do not install software, bypass permissions or fabricate checks.
-3. Review **only flagged files and limited nearby context**, confirm whether
-   anomalies are real, and distinguish true corruption from legitimate Unicode
-   (Dutch accents, CJK text, emojis), intentional test fixtures or examples.
-4. Report severity, confidence, exact `path:line`, evidence, risk and safe
-   remediation guidance. Summarize files scanned, files excluded and checks
-   skipped. Do **not** change any project file, Git state, dependencies, cache
-   or configuration. Do not automatically apply fixes, even for obvious issues.
+1. Discover the project's first-party source files using available file
+   browsing/search/read capabilities. Include PHP pages, handlers, enums,
+   components, data arrays, HTML, JS, JSON, configuration, templates and
+   authored text files. Inspect the whole first-party project in bounded
+   batches, rather than merely Git-changed files. List the scope and any
+   inaccessible files. Exclude third-party, generated, minified, caches,
+   `.git` internals, `.agents` skill files and binary/media files from code
+   inspection by default, and name these exclusions.
+2. **Do not invoke `scan-integrity.ps1` or any other scanner. Do not run
+   PowerShell, shell, PHP, Node, Python or other scripts/commands for this
+   report. Do not install utilities or change execution policies.** Use
+   Codex's ordinary file-reading, navigation and search capabilities only.
+   If file contents cannot be accessed, report incomplete coverage.
+3. Examine source for suspicious corruption introduced by past PowerShell
+   commands, file encodings, line-based replacements or AI rewrites, including
+   broken quoting/backticks, literal escape sequences like `\n` where
+   real line breaks belong, malformed interpolation, unintended joined/split
+   lines, truncated blocks, duplicate paste fragments, stray here-string
+   delimiters, and inconsistencies between affected code and its consumers.
+4. Look for replacement glyphs (`�`), likely mojibake (`Ã©`, `â€™`),
+   unexpected NUL/control characters *when visible*, odd punctuation in
+   identifiers or markup, unresolved merge markers, malformed PHP/HTML/JS,
+   missing brackets, suspicious PHP tag boundaries and damaged string
+   literals. Inspect nearby context to avoid false positives.
+5. Use Git diffs/history **only if already available through read-only
+   project tools**, to help identify suspicious rewrites; lack of Git history
+   is not itself an issue. Never infer the original intended code solely
+   from a strange-looking line.
+6. For efficiency, review representative file content and search hits in
+   batches, then inspect suspicious locations and their immediate consumers
+   more closely. Do not repeatedly reread unchanged files or perform
+   unrelated SEO/structure/format/design audits. **Do not claim complete
+   line-by-line coverage unless it actually occurred.**
+7. Produce the report defined below. Do not modify, reformat, rename,
+   delete or repair anything, even if the fix seems obvious.
 
-## Checks and limits
+## Evidence and limits
 
-- Strict UTF-8 validation (including BOM handling), U+FFFD replacement
-  characters, unusual controls/NUL in text, suspicious mojibake (`Ã©`, `â€™`
-  etc.), mixed line endings and inconsistent BOMs. Report likely encoding
-  anomalies as **suspected**, not certain, when the original encoding is unknown.
-- Git conflict markers and suspicious unfinished fragments, noting that
-  heuristic checks can have false positives.
-- PHP syntax with `php -l`, JavaScript syntax with `node --check` where those
-  commands are installed; JSON parse validation. HTML structure and complex
-  runtime correctness are not reliably proven by the basic scanner.
-- Binary/media data: classify by file type/signature and skip text decoding;
-  do not claim full binary integrity or source semantics were verified.
-- Never confuse legitimate emoji, accented text, Tailwind class characters,
-  minified code or a deliberately non-UTF-8 file with confirmed corruption.
-- Limit model context: deterministic, full-project scanning first; only
-  suspicious findings go to deeper model-based analysis. Avoid Graphify
-  indexing and costly full-project AI rereads.
+- Distinguish **confirmed syntactic/text anomalies**, **suspected
+  corruption**, and **unverified risks**. A visually odd line is not proof
+  that PowerShell or Codex caused it.
+- Legitimate accents, multilingual content, emoji, escaped strings,
+  intentional fixtures and Tailwind classes are not automatically corrupt.
+- Reading displayed text alone cannot reliably establish invalid UTF-8 bytes,
+  BOM presence, binary damage or executable correctness. Do not claim such
+  checks passed without appropriate evidence; label them **NOT VERIFIED**.
+- This is an AI review, not a replacement for `php -l`, a JS parser, runtime
+  testing or strict byte-level encoding validation. These checks are outside
+  this command's no-script/no-command scope.
 
-Read `references/integrity-checks.md` only if needed for ambiguous findings.
-Root `AGENTS.md` governs the global read-only and token-efficiency rules.
+## Report output
+
+- Coverage: files and directories reviewed, file types, exclusions, number
+  actually inspected, and whether inspection was sampled or complete.
+- Findings: severity, confidence, exact `path:line` when known, short excerpt,
+  why it appears corrupted, potential impact and suggested *manual* repair.
+- Separate **confirmed**, **suspected** and **not verified** findings.
+- If nothing suspicious is found, say **"No visible corruption found in
+  reviewed files"**, not that the project is proven corruption-free.
+- Keep the result concise; expand only for high-severity issues.
+
+Read `references/integrity-checks.md` when evaluating ambiguous findings.
+Root `AGENTS.md` still governs token-efficiency and project conventions.

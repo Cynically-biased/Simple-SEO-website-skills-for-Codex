@@ -572,10 +572,13 @@ Ensure a safe local PHP preview is running (or can be started) and Codex can
 read PNG images. No desktop Computer Use or browser installations are allowed.
 See `.agents/skills/website-design-report/references/cli-headless-execution.md`.
 
-## Manual source integrity scan
+## Manual AI source integrity review
 
-Run `$website-integrity-report` in Codex chat after installation. It scans
-first-party source files for encoding, symbol, merge marker and syntax
-problems without modifying the website. An installed `php` and/or `node`
-CLI enables additional syntax checks; if unavailable, Codex will report
-the missing coverage rather than installing a dependency.
+Run `$website-integrity-report` in Codex chat after installation. It asks
+Codex to read first-party project files and investigate suspected damage from
+PowerShell rewrites, accidental character encoding changes, broken line
+breaks, malformed text, conflicts or incomplete source. **No PowerShell
+script, scanner, executable, software installation or execution-policy change
+is required.** It is read-only and reports the files actually inspected.
+Byte-level encoding validity and parser/runtime correctness remain unverified
+by this AI-only review.

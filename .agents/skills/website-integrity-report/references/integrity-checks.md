@@ -1,36 +1,45 @@
-# Integrity audit evidence guide
+# AI-led integrity inspection reference
 
-## What counts as evidence
+The goal is to spot **unintended source damage**, especially after PowerShell
+file rewrites or AI-generated edits. Do not execute a bundled scanner, invoke
+shell commands, or alter any file.
 
-- Invalid UTF-8 bytes: report the file and strict decoding failure; may be
-  intentional Windows-1252 or another encoding rather than damaged content.
-- U+FFFD: report as suspicious replacement character, not proof the source
-  was corrupted by this tool.
-- Mojibake sequences: high false-positive risk in documentation/examples.
-  Show short sanitized excerpts and validate intended locale if possible.
-- Merge markers: `<<<<<<<`, `=======`, `>>>>>>>` in a plausible conflict
-  block. Isolated examples in Markdown/docs are not necessarily defects.
-- Line endings: mixed CRLF/LF is a consistency warning, not syntax corruption.
-- PHP `php -l`, Node `node --check` and JSON parse errors are concrete parse
-  failures, but do not establish that a file was damaged or that the complete
-  website fails at runtime. Not all JavaScript code types can be parsed in
-  the same mode; recognize modules and templated JS.
-- Unicode categories: TAB/CR/LF are normal; non-ASCII characters and emoji
-  are allowed. Flag NUL and unexpected C0/C1 controls in text only.
-- Missing closing tags/brackets and truncation may require contextual/manual
-  investigation; avoid guessing original code or auto-repairing it.
+## Potential signals
 
-## Report format
+| Signal | Typical investigation | Caution |
+| --- | --- | --- |
+| `�`, `Ã©`, `â€™` | Compare nearby intended language and UI text | Might be an intentional example |
+| Literal `\n` or `\r\n` in markup | Check whether the literal characters leaked from a replacement command | Valid inside some strings |
+| Abnormal quote/backtick sequence | Examine PHP/JS string boundaries, escaping and interpolation | Legitimate templates can be complex |
+| Broken PHP/HTML tag boundary | Compare adjacent blocks and component usage | Some tags intentionally omit closing tags |
+| Unmatched braces or parentheses | Read complete function/block, not isolated line | Not equivalent to parser validation |
+| Split/joined lines or huge new line | Look for accidental concatenation or loss of delimiters | Long Tailwind lists are not necessarily broken |
+| Here-string remnants (`@'`, `'@`, `@"`) | Check whether PowerShell rewrite delimiters were accidentally written into source | Can appear in intentional documentation |
+| Repeated/disappearing blocks | Inspect nearby source and available revision evidence | Repetition can be intentional |
+| Conflict marker block | Check `<<<<<<<`, `=======`, `>>>>>>>` together | Documentation may quote examples |
+| Inconsistent references after rewrite | Check include paths, enum names, component/data consumers | A mismatch need not be corruption |
 
-1. Scope: root, number of source files scanned by check, exclusions and
-   installed tool availability.
-2. Findings table: severity, confidence, file:line, evidence, likely impact,
-   manual remediation.
-3. Coverage gaps: unavailable parsers, suspicious binary files excluded,
-   unrendered PHP, unexecuted tests, heuristic limitations.
-4. Conclusion: number of confirmed syntax/encoding faults, suspected
-   corruption and review-needed items. Do not give a blanket "clean"
-   declaration if substantial checks were unavailable.
+## Scope / evidence rules
 
-The report is ALWAYS read-only. Users must explicitly request changes in a
-separate task.
+Inspect all accessible first-party source files in manageable batches; do not
+load a whole large repository into context at once. Track which files were
+actually read, sampled, inaccessible or excluded. Spot-check referenced code
+around suspicious sections. Read-only file-navigation/search tools are fine;
+no script execution or shell-based scanner fallback.
+
+Viewing decoded text alone **cannot prove valid UTF-8, byte-order marks or
+absence of invisible bytes**. Structural suspicion is not proof of root cause.
+If the project is too large to inspect fully within resource limits, say which
+areas were covered and which were not. Don't silently claim a complete scan.
+
+## Format
+
+1. Brief coverage table: source files discovered, actually inspected, skipped,
+   excluded and unavailable (counts only when measured).
+2. Findings sorted by severity: `path:line`, evidence, confidence, impact,
+   proposed manual correction.
+3. Coverage limitations and tests **NOT VERIFIED** (byte-level encoding,
+   parser validity, runtime, uninspected files).
+4. Summary of confirmed faults, suspected corruption and review-needed items.
+
+**Never fix files inside this skill.** An explicit separate request is needed.

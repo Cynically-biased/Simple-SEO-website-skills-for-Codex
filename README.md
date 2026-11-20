@@ -52,7 +52,7 @@ Use these commands in the **Codex chat**, not in PowerShell.
 | `$website-cleanup-report --deep` | Deeper referenced-code and architecture necessity review | No |
 | `$website-naming-fix --check` | Audit naming and underscore rules | No |
 | `$website-naming-fix` | Safely rename noncompliant files and update references | Yes, safe renames only |
-| `$website-integrity-report` | Full-project corrupted code, encoding, symbol and syntax scan | No |
+| `$website-integrity-report` | AI review for suspicious code corruption, rewrite damage and symbols | No |
 | `$website-format-code` | Reformat existing source code | Yes, formatting only |
 | `$website-format-code --check` | Report formatting problems | No |
 
@@ -81,19 +81,21 @@ The package has twelve website skills under `.agents/skills/`.
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 
-## Website integrity report (manual, read-only)
+## Website integrity report (AI-led, manual, read-only)
 
-Run `$website-integrity-report` in **Codex chat** to scan first-party source
-across the entire project for invalid UTF-8, replacement characters,
-suspected mojibake, unexpected control characters, mixed line endings,
-unresolved merge markers, PHP/JavaScript syntax errors (when parsers exist),
-and invalid JSON. It reports paths, line numbers, confidence and limitations.
+Run `$website-integrity-report` in **Codex chat** to ask the agent to inspect
+first-party project source files for suspicious corruption introduced by
+PowerShell rewrites, text encoding mistakes, copy/paste, or AI code changes.
+It looks for mangled symbols, visible mojibake, accidental literal escape
+sequences, broken strings or tags, suspicious cut-off blocks, merge markers
+and unexpected changes in referenced code.
 
-The skill includes a reusable PowerShell scanner at
-`.agents/skills/website-integrity-report/scripts/scan-integrity.ps1`.
-It scans deterministically without uploading all source to the model; Codex
-only investigates flagged results. Generated, vendor and binary files are
-excluded by default and listed as such. **No files are modified.**
+**No PowerShell scanner or other executable is required or invoked.** The
+agent uses file browsing and reading to investigate evidence in manageable
+batches. The report lists what was inspected and any gaps; it cannot prove
+byte-level encoding validity or runtime syntax correctness without tools
+that this no-command review deliberately does not execute. No files are
+modified or repaired.
 
 ```text
 $website-integrity-report
