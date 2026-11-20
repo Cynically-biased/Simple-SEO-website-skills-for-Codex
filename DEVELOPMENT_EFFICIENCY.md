@@ -10,6 +10,12 @@ This is task-size management, not a token quota or model switch.
   Read only relevant project guidelines and any supplied design.
   Create a small first batch; index only after useful source exists,
   and only when the official Graphify skill supports it.
+- **Creative design / explicit redesign:** New builds choose one expressive,
+  audience-appropriate design direction and develop in page/component batches.
+  Explicit redesigns may change all necessary files inside the requested
+  design scope; do not let minimal-diff guidance force a worse design. Never
+  generate several complete visual alternatives by default. Load the creative
+  reference only for actual design work; no automatic design audits.
 - **Existing site / targeted edit:** Reuse a current Graphify graph
   if available. Locate only the affected files and dependencies.
   Do not dump the full codebase into context.

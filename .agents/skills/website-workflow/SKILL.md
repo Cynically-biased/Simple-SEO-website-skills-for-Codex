@@ -12,7 +12,16 @@ description: >-
 # Build/change website
 
 - Categorize the request: new site, existing targeted edit, Tailwind migration, or large refactor.
-- For a new site, implement the requested page/component first; skip empty-project Graphify.
+- For a new site, establish one distinctive, brand-appropriate creative
+  direction (expressive by default) then implement the requested page/component;
+  skip empty-project Graphify. Consult `website-creative-design/SKILL.md`
+  for new page design or explicitly requested redesigns, but do not load it
+  for unrelated code fixes, formatting or audits.
+- On existing-site routine edits, preserve current layout, colors and theme.
+  For an explicit redesign, allow necessary cross-file layout and component
+  changes inside the requested scope; minimal-diff rules must not degrade
+  requested design quality. Do not produce multiple full design concepts by
+  default or invoke visual audits/browser checks automatically.
 - For an existing site, inspect only relevant files and dependencies; use Graphify when useful and current.
 - For large tasks, batch by shared component or page, track completed units, make minimal diffs and avoid revisiting finished sections.
 - Preserve strict Tailwind-only rules; real `sitemap.xml`; PHP arrays/enums/handlers/components conventions in root `AGENTS.md`.

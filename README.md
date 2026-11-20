@@ -14,7 +14,8 @@ Use these commands in the **Codex chat**, not in PowerShell.
 
 | Command | Purpose | Changes project source? |
 | --- | --- | --- |
-| `$website-workflow` | Develop and modify websites | Yes, when requested |
+| `$website-workflow` | Develop and modify websites; expressive creative direction for new builds | Yes, when requested |
+| `$website-creative-design` | Optional direct creative-direction / Tailwind website design skill | When asked to implement |
 | `$website-test-report` | Quality review with a 1–10 score | No |
 | `$website-seo-report` | Efficient source-based SEO audit; provisional 1–10 score with coverage | No |
 | `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
@@ -46,7 +47,23 @@ They provide evidence and recommendations without changing project files.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has eleven website skills under `.agents/skills/`.
+The package has **twelve** website skills under `.agents/skills/`.
+
+## Creative Freedom V2 (built into the workflow)
+
+The `website-creative-design` skill guides distinctive, brand-appropriate
+websites without restricting layouts, typography, colors, images or tasteful
+animations to a fixed template. New sites use an **expressive** default;
+new pages follow established branding; routine fixes preserve appearance;
+explicit redesigns can change all necessary files in scope. Tailwind-only CSS,
+PHP architecture, SEO, accessibility and responsive usability still apply.
+
+Simply use `$website-workflow` for a new site or redesign. The workflow
+consults the creative-design skill when relevant; you may also call
+`$website-creative-design` directly for a creative design request. It chooses
+one cohesive direction rather than generating costly multiple builds, and
+**does not restore** the removed design-audit/browser skill or auto-run tests.
+
 **Graphify itself is a separate official installation** and is not
 bundled in this repository.
 

@@ -109,6 +109,15 @@ https://github.com/Graphify-Labs/graphify
   an additional Codex feature setting. It is not required merely
   to run the core skill.
 
+## Creative Freedom V2
+
+No additional tools or plugins are necessary. `website-creative-design` is a
+supporting design skill that `$website-workflow` loads on new design tasks and
+explicit redesigns, not on unrelated bug fixes. It encourages distinctive
+expressive designs while preserving strict Tailwind-only and PHP standards.
+The optional direct invocation is `$website-creative-design`. No separate
+visual QA, browser or design-audit skill is installed.
+
 ## Main commands
 
 Development (no automatic tests):

@@ -16,6 +16,20 @@
   never start watchers or full reindexes automatically.
 - Keep summaries concise: changed files, important checks, unresolved items.
 
+## Creative freedom and design intent
+
+- For new sites and user-requested redesigns, use **Creative Freedom V2**:
+  design for the brand, audience and purpose instead of defaulting to a generic
+  template. New sites default to an **expressive** visual direction; ordinary
+  edits preserve the existing appearance unless a redesign is requested.
+- Technical standards govern **implementation**, not permissible colors,
+  layouts, typography, compositions or tasteful animations. For an explicitly
+  requested redesign, necessary design changes take precedence over minimal
+  diffs within the requested scope; avoid unrelated rewrites and extra concepts.
+- `$website-workflow` uses `website-creative-design` guidance on design tasks.
+  No automatic visual audit, browser control, image generation or third-party
+  plugins. Read detailed creative references only when relevant.
+
 ## Mandatory site conventions
 
 - Styling: **Tailwind utility classes only**. Zero custom CSS, inline styles,

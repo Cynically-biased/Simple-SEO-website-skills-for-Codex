@@ -7,6 +7,11 @@ description: >-
   setup.
 ---
 
+<!-- Design guidance: website-creative-design defines creative direction on
+new site/redesign tasks. PHP architecture determines implementation, not the
+visual palette, layout or editorial composition. Existing designs are
+preserved for routine fixes. -->
+
 # PHP/Tailwind implementation
 
 - Implement the requested PHP feature without changing unrelated pages.
