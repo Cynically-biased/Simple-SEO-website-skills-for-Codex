@@ -1,3 +1,5 @@
+> Historical reference only. Current AGENTS.md and active skills supersede all conflicting technical, creative, efficiency and verification instructions.
+
 > Historical reference only. The former website design audit skill was removed.
 > Do not invoke or recreate it; active root AGENTS.md takes precedence.
 

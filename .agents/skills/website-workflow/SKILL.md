@@ -3,8 +3,8 @@ name: website-workflow
 description: >-
   Master workflow for building and changing PHP websites.
   Apply development and SEO standards, starting with Graphify.
-  Do not run tests automatically.
-  Testing is an explicit, separate read-only skill.
+  Perform appropriate non-destructive verification.
+  Dedicated audit reports are explicit and read-only.
   Use when asked to build or change a site or apply the complete
   development workflow. For audits use website-test-report or website-seo-report.
 ---
@@ -12,18 +12,12 @@ description: >-
 # Build/change website
 
 - Categorize the request: new site, existing targeted edit, Tailwind migration, or large refactor.
-- For a new site, establish one distinctive, brand-appropriate creative
-  direction (expressive by default) then implement the requested page/component;
-  skip empty-project Graphify. Consult `website-creative-design/SKILL.md`
-  for new page design or explicitly requested redesigns, but do not load it
-  for unrelated code fixes, formatting or audits.
-- On existing-site routine edits, preserve current layout, colors and theme.
-  For an explicit redesign, allow necessary cross-file layout and component
-  changes inside the requested scope; minimal-diff rules must not degrade
-  requested design quality. Do not produce multiple full design concepts by
-  default or invoke visual audits/browser checks automatically.
-- For an existing site, inspect only relevant files and dependencies; use Graphify when useful and current.
-- For large tasks, batch by shared component or page, track completed units, make minimal diffs and avoid revisiting finished sections.
+- For new sites, pages and redesigns, consult `website-creative-design/SKILL.md`.
+  Explore freely without artificial budgets, direction counts or batch limits.
+  Preserve the design for unrelated routine edits. Skip empty-project indexing.
+- Inspect as much relevant source and dependencies as necessary; use Graphify
+  when helpful. Expand scope of inspection, revisit files and rewrite code when
+  needed for quality. Choose sensible batch sizes; no mandatory page-by-page cap.
 - Preserve strict Tailwind-only rules; real `sitemap.xml`; PHP arrays/enums/handlers/components conventions in root `AGENTS.md`.
 - For created/modified public routes, keep URL slugs, internal links,
   canonicals, redirects and static sitemap consistent; avoid unrelated URL
@@ -45,7 +39,7 @@ description: >-
   naming migration; routine development remains task-scoped.
 - Do not run test, SEO, architecture, cleanup unless
   separately requested.
-- Use targeted local checks, no automatic full project audit.
+- Run all relevant authorized verification, including broader tests when needed; no unsolicited audit reports.
 - Read `DEVELOPMENT_EFFICIENCY.md` only when a task requires batching/migration details.
 - Read `CONTENT_ARCHITECTURE.md` when implementing arrays, handlers, enums or components.
 - Read the relevant section of `references/full-instructions.md` for detailed implementation or standards, not the entire file by default.
@@ -58,3 +52,7 @@ needed; for report/formatter invocations, read all necessary audit or
 formatting criteria before executing. Do not read unrelated skills.
 
 Root `AGENTS.md` is authoritative for the common invariants.
+
+## Quality-first precedence
+
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.

@@ -119,7 +119,7 @@ Prefer one file per sensible dataset, not one file per array item.
 - Do not store secrets, credentials or private data in public arrays.
 - Where possible keep `data/` outside the document root; otherwise
   deny direct HTTP access to PHP data files at the server level.
-- Do not run standalone scripts or page tests unless requested.
+- Relevant safe syntax and page verification is allowed; do not run unsafe scripts or modify production state.
 
 ## Workflow and compatibility
 

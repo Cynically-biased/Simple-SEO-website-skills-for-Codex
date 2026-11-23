@@ -72,23 +72,13 @@ seo-url-architecture-v3.md` and `seo-audit-modes-v2.md`.
 
 The package has **twelve** website skills under `.agents/skills/`.
 
-## Creative Freedom V2 (built into the workflow)
+## Unrestricted creative design
 
-The `website-creative-design` skill guides distinctive, brand-appropriate
-websites without restricting layouts, typography, colors, images or tasteful
-animations to a fixed template. New sites use an **expressive** default;
-new pages follow established branding; routine fixes preserve appearance;
-explicit redesigns can change all necessary files in scope. Tailwind-only CSS,
-PHP architecture, SEO, accessibility and responsive usability still apply.
+`$website-workflow` automatically applies `$website-creative-design` for design
+work. No artificial creative budget, concept count, prescribed aesthetic or
+page batch limit. Necessary design changes take priority over usage savings.
+Strict Tailwind-only and PHP standards remain. No visual-audit skill is included.
 
-Simply use `$website-workflow` for a new site or redesign. The workflow
-consults the creative-design skill when relevant; you may also call
-`$website-creative-design` directly for a creative design request. It chooses
-one cohesive direction rather than generating costly multiple builds, and
-**does not restore** the removed design-audit/browser skill or auto-run tests.
-
-**Graphify itself is a separate official installation** and is not
-bundled in this repository.
 
 ## Website integrity report (AI-led, manual, read-only)
 
@@ -306,23 +296,13 @@ Tailwind output are allowed; never manually edit build output.
 Legacy source documentation is retained unchanged, but this stricter
 policy takes precedence over its older custom-CSS exceptions.
 
-## Automatic Token-Efficient Development Mode
+## Quality-first efficiency
 
-`$website-workflow` automatically selects a development approach:
+Efficiency is a preference, not a cap. Expand inspection, refactoring and safe
+verification as needed. Avoid only redundant or unrelated work. Dedicated
+report commands stay manual-only and read-only. See `DEVELOPMENT_EFFICIENCY.md`
+and `TOKEN_EFFICIENT_MODE_V2.md` for the updated policy.
 
-- **New project:** skip unnecessary Graphify analysis and build
-  requested features in small batches.
-- **Existing project:** reuse the graph and read relevant files.
-- **Tailwind migration:** convert shared components first and
-  then individual pages, without repeatedly rewriting finished
-  pages or introducing custom CSS.
-- **Large refactor:** split work by dependency boundaries.
-
-It avoids repeated source reads and unnecessary Graphify rebuilds,
-but **does not guarantee lower Codex usage**. Manual tests and
-SEO/structure reports remain opt-in.
-
-See [DEVELOPMENT_EFFICIENCY.md](DEVELOPMENT_EFFICIENCY.md).
 
 ## Sitemap policy (mandatory)
 
@@ -368,17 +348,13 @@ helpful; ordinary page HTML stays in its page. See `AGENTS.md` and
 `CONTENT_ARCHITECTURE.md`.
 
 
-## Token-Efficient Mode V2
+## Quality-first efficiency
 
-- Root `AGENTS.md` is now a concise rules index. Detailed earlier rules
-  remain in `references/AGENTS-full-previous.md`.
-- Core skills use concise `SKILL.md` entry points; its original full
-  instructions remain under that skill's `references/full-instructions.md`.
-- Codex should load only the relevant skill and on-demand reference sections.
-- Development uses minimal-diff edits, targeted reads, conditional Graphify,
-  small batches, relevant checks and short completion summaries.
-- See `TOKEN_EFFICIENT_MODE_V2.md` for policy and caveats.
-- All manual-only audit and format boundaries are unchanged.
+Efficiency is a preference, not a cap. Expand inspection, refactoring and safe
+verification as needed. Avoid only redundant or unrelated work. Dedicated
+report commands stay manual-only and read-only. See `DEVELOPMENT_EFFICIENCY.md`
+and `TOKEN_EFFICIENT_MODE_V2.md` for the updated policy.
+
 
 ## Logical file naming (new)
 

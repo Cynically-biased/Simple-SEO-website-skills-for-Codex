@@ -222,9 +222,8 @@ description: >-
 
 ## Completion (no automatic testing)
 
-- Do not run PHP lint, CSS builds, browser checks or tests unless
-  the user explicitly asks for testing.
-- Report changed files and state that tests were not run.
+- Run relevant authorized PHP lint, builds and isolated tests as needed.
+- Report changed files, checks actually run and any missing verification.
 - For an optional scored read-only audit use `$website-test-report`.
 
 
@@ -234,7 +233,11 @@ description: >-
 - For a new site, create requested sections incrementally;
   do not generate every possible page or graph an empty project.
 - For CSS-to-Tailwind conversions, migrate shared components
-  first, followed by one page or closely related group per batch.
-- Reuse existing PHP/Tailwind patterns and avoid broad rewrites.
+  first where helpful, with batch sizes chosen by dependencies and quality.
+- Reuse patterns where helpful; allow necessary rewrites within scope.
 - Preserve the strict no-custom-CSS policy in every batch.
-- Never auto-run testing, SEO reviews or formatting passes.
+- Never auto-run unrelated audit or formatting commands; verify requested changes as needed.
+
+## Quality-first precedence
+
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.

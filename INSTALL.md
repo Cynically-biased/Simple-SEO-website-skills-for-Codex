@@ -109,18 +109,17 @@ https://github.com/Graphify-Labs/graphify
   an additional Codex feature setting. It is not required merely
   to run the core skill.
 
-## Creative Freedom V2
+## Unrestricted creative design
 
-No additional tools or plugins are necessary. `website-creative-design` is a
-supporting design skill that `$website-workflow` loads on new design tasks and
-explicit redesigns, not on unrelated bug fixes. It encourages distinctive
-expressive designs while preserving strict Tailwind-only and PHP standards.
-The optional direct invocation is `$website-creative-design`. No separate
-visual QA, browser or design-audit skill is installed.
+`$website-workflow` automatically applies `$website-creative-design` for design
+work. No artificial creative budget, concept count, prescribed aesthetic or
+page batch limit. Necessary design changes take priority over usage savings.
+Strict Tailwind-only and PHP standards remain. No visual-audit skill is included.
+
 
 ## Main commands
 
-Development (no automatic tests):
+Development (relevant safe verification; audits manual):
 
 ```text
 $website-workflow
@@ -412,21 +411,13 @@ When using a pre-existing site with handwritten CSS, Codex should
 report it instead of silently rewriting unrelated files. A separate,
 authorized migration task is needed to convert legacy CSS to Tailwind.
 
-## Token-Efficient Development Mode
+## Quality-first efficiency
 
-No extra skill command is required. With the latest `AGENTS.md`,
-`$website-workflow` follows `DEVELOPMENT_EFFICIENCY.md`.
-Copy this file alongside `AGENTS.md` into the website project root.
+Efficiency is a preference, not a cap. Expand inspection, refactoring and safe
+verification as needed. Avoid only redundant or unrelated work. Dedicated
+report commands stay manual-only and read-only. See `DEVELOPMENT_EFFICIENCY.md`
+and `TOKEN_EFFICIENT_MODE_V2.md` for the updated policy.
 
-- Empty project: avoid Graphify graph creation at startup.
-- Existing site: prefer targeted queries against the current graph.
-- Tailwind migration: convert components/pages in bounded batches.
-- After relevant authorized changes: synchronize affected graph
-  information according to `GRAPHIFY_SYNC.md`.
-- Tests, SEO/structure audits and existing-code formatting
-  remain manual commands.
-
-This is guidance, not a hard usage cap or guaranteed savings.
 
 ## Static XML sitemap requirement
 
@@ -487,17 +478,13 @@ structure, and `$website-format-code --check` makes no edits.
 Neither command runs automatically.
 
 
-## Token-Efficient Mode V2 (latest)
+## Quality-first efficiency
 
-- Root `AGENTS.md` is now a concise rules index. Detailed earlier rules
-  remain in `references/AGENTS-full-previous.md`.
-- Each of the eight skills now has a shorter `SKILL.md`; its original full
-  instructions remain under that skill's `references/full-instructions.md`.
-- Codex should load only the relevant skill and on-demand reference sections.
-- Development uses minimal-diff edits, targeted reads, conditional Graphify,
-  small batches, relevant checks and short completion summaries.
-- See `TOKEN_EFFICIENT_MODE_V2.md` for policy and caveats.
-- All manual-only audit and format boundaries are unchanged.
+Efficiency is a preference, not a cap. Expand inspection, refactoring and safe
+verification as needed. Avoid only redundant or unrelated work. Dedicated
+report commands stay manual-only and read-only. See `DEVELOPMENT_EFFICIENCY.md`
+and `TOKEN_EFFICIENT_MODE_V2.md` for the updated policy.
+
 
 ## New on-demand cleanup command
 

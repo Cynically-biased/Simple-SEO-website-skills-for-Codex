@@ -1,3 +1,5 @@
+> Historical reference only. Current AGENTS.md and active skills supersede all conflicting technical, creative, efficiency and verification instructions.
+
 # Simple PHP Website
 
 

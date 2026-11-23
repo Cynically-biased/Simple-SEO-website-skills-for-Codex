@@ -44,3 +44,7 @@ areas were covered and which were not. Don't silently claim a complete scan.
 4. Summary of confirmed faults, suspected corruption and review-needed items.
 
 **Never fix files inside this skill.** An explicit separate request is needed.
+
+## Quality-first precedence
+
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.

@@ -1,34 +1,26 @@
 # Codex project rules — concise entry point
 
-## Scope and token-efficient execution
+## Quality-first execution
 
-- Follow the user's requested task; do not run unrelated reviews or build extras.
-- Classify tasks as new-site, targeted edit, CSS migration, large refactor,
-  formatting, or manual audit before deciding what context to load.
-- Prefer narrow searches, minimal diffs, and existing context. Do not dump
-  entire directories or rewrite unchanged files to save analysis effort.
-- Read only the relevant `SKILL.md`; follow its links to detailed references
-  only for the specific work being performed. Do not preload every skill.
-- For a new/empty project, skip Graphify indexing until meaningful source
-  exists. For existing projects, use the current graph only when dependency
-  relationships materially help; verify against source if stale.
-- After meaningful changed-code batches, sync affected graph data if supported;
-  never start watchers or full reindexes automatically.
-- Keep summaries concise: changed files, important checks, unresolved items.
+- Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.
+- Start with relevant context; expand whenever useful. Reuse valid findings and
+  avoid genuinely unrelated work, unnecessary Graphify rebuilds and duplicate
+  analysis. Verify stale graph information against actual source.
+- Use appropriate verification and report results, limitations and unresolved
+  issues with enough detail to be useful. No automatic unrelated audit commands.
 
-## Creative freedom and design intent
+## Unrestricted creative design within technical standards
 
-- For new sites and user-requested redesigns, use **Creative Freedom V2**:
-  design for the brand, audience and purpose instead of defaulting to a generic
-  template. New sites default to an **expressive** visual direction; ordinary
-  edits preserve the existing appearance unless a redesign is requested.
-- Technical standards govern **implementation**, not permissible colors,
-  layouts, typography, compositions or tasteful animations. For an explicitly
-  requested redesign, necessary design changes take precedence over minimal
-  diffs within the requested scope; avoid unrelated rewrites and extra concepts.
-- `$website-workflow` uses `website-creative-design` guidance on design tasks.
-  No automatic visual audit, browser control, image generation or third-party
-  plugins. Read detailed creative references only when relevant.
+- For new sites, new pages and requested redesigns, apply `website-creative-design`.
+  Explore freely: any suitable layout, visual style, color, typography, imagery,
+  animation, composition, number of concepts or component changes. No prescribed
+  creativity level, reduced exploration, one-direction rule or creative budget.
+- Choose or develop alternatives when valuable; use available authorized research,
+  visual references and image tools when appropriate. No mandatory browser or
+  external installations, no restored visual-audit skill or desktop control.
+- Preserve existing appearance for unrelated repairs; honor the user's brief,
+  brand requirements and requested scope. Necessary redesign work takes priority
+  over minimal diffs and usage savings. Technical standards remain mandatory.
 
 ## Mandatory site conventions
 
@@ -64,7 +56,7 @@
 
 ## Explicit command boundaries
 
-- `$website-workflow`: develop/change site; task-scoped, batched edits.
+- `$website-workflow`: develop/change site; task-scoped, flexible implementation and verification.
 - `$website-test-report`, `$website-seo-report`, `$website-structure-report`:
   **opt-in, read-only**. Never run these automatically or fix findings.
 - `$website-seo-report` checks public URL architecture, internal links,

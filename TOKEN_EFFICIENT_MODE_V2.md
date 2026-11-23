@@ -1,43 +1,12 @@
-# Token-Efficient Mode V2
+# Quality-first efficiency policy (supersedes restrictive Token-Efficient Mode V2)
 
-This policy aims to reduce unnecessary Codex context and repeated edits.
-It does **not** change model selection, bypass limits, or guarantee savings.
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.
 
-## Lazy context loading
-
-1. Read root `AGENTS.md` and the explicitly named/relevant skill only.
-2. Do not load all eight skills, original full reference materials, or
-   whole-repository file contents at the start of routine tasks.
-3. Each skill's `references/full-instructions.md` holds its original
-   detailed guidance; access just the sections pertinent to the task.
-4. Use specialized reference files only if implementing their features.
-
-## Work execution
-
-- Discover narrow relevant files using filenames, symbols and targeted search.
-- For existing projects, use Graphify only when dependency exploration would
-  make work more accurate or efficient; verify graph facts against code.
-- For empty projects and simple isolated edits, skip Graphify kickoff.
-- Avoid redundant re-reading and full-source output; keep diffs small.
-- Group broad migrations into page/component-sized batches; share unchanged
-  logic and finish current batch before moving on.
-- Do local verification appropriate to edits, e.g., syntax/check of changed
-  files; do not launch unsolicited report skills or full-project suites.
-- No automated watchers, repeated full Graphify scans or rebuilds.
-- Reply briefly with changed files, checks and any noteworthy remaining work.
-
-## Hard boundaries
-
-- Preserve strict Tailwind-only styling, XML-only sitemap and selective PHP
-  arrays/components/handlers/enums as summarized in `AGENTS.md`.
-- `$website-test-report`, `$website-seo-report` and
-  `$website-structure-report` remain explicit read-only operations.
-- `$website-format-code` changes formatting only; `--check` changes nothing.
-- Detailed instructions remain in each skill's references and can be read
-  when needed. No architecture/SEO/security checks were removed.
-
-## Manual cleanup analysis
-
-`$website-cleanup-report` performs a separate, on-demand, read-only inventory
-and evidence-based reference search. It uses narrow queries, does not require
-a full Graphify reindex, and does not modify the project.
+Start with relevant instructions, search and source context, then expand as
+needed. Avoid duplicated reads only when the previous evidence remains valid.
+Prefer minimal diffs only when they produce the best suitable implementation.
+Batch sizes and verification depth follow the task, not artificial quotas.
+Preserve all mandatory project standards and manual-only report boundaries.
+Read-only reports may use safe inspection and isolated non-mutating checks;
+formatting changes must preserve semantics. Never skip requested coverage to
+conserve usage. Report evidence, limitations and confidence honestly.

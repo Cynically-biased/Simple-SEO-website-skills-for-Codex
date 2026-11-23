@@ -142,7 +142,7 @@ The examples use placeholders; never deploy those as real values.
 - Keep code readable (88-character target) while preserving valid
   XML, PHP, JavaScript and JSON syntax.
 - Report configured items, placeholders and outstanding work.
-  Do not test automatically; use `$website-test-report` on request.
+  Verify relevant changes safely; use `$website-test-report` on request for a dedicated audit.
 
 ## Physical source-code line breaks (mandatory)
 
@@ -167,3 +167,7 @@ The examples use placeholders; never deploy those as real values.
   without reformatting unrelated files unless asked.
 - **Before finishing, inspect long physical lines** in changed
   hand-written source files and fix safely breakable lines.
+
+## Quality-first precedence
+
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.

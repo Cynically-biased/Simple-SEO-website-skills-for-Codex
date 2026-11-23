@@ -17,10 +17,10 @@ Graphify is a code-navigation aid, not a promise of lower token use.
    Prefer incremental, batched updates, never full rebuilds by default.
 5. Keep answers concise. Avoid dumping whole graphs, directory
    listings, repeated search output, and full source files.
-6. Read only relevant code spans and directly affected dependencies.
+6. Start with relevant code spans and dependencies; expand as needed.
    Follow new links only where needed to confirm a finding.
 7. Reuse information already established in the current session;
-   do not repeat successful queries or reread unchanged files.
+   avoid redundant queries; revisit files when needed.
 8. Verify suspected issues against current source code. Graph edges
    are clues and may omit runtime or dynamically constructed links.
 9. State whether Graphify was used, whether its data was fresh,
@@ -44,7 +44,7 @@ Graphify is a code-navigation aid, not a promise of lower token use.
 
 - `$website-workflow`: may change requested source files. After
   source edits, use `GRAPHIFY_SYNC.md` for a single incremental
-  update where relevant, documented and permitted. No audits/tests.
+  update where relevant, documented and permitted. No unsolicited audit reports; relevant safe verification is allowed.
 - `$website-test-report`, `$website-seo-report`, and
   `$website-structure-report`: read-only; no index creation,
   refresh, modified files, caches or other write-producing calls.

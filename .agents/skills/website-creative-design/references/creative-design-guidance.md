@@ -1,63 +1,30 @@
-# Creative Design Guidance — On-demand reference
+# Unrestricted creative design guidance
 
-## Creative directions
+Use the user's brief, audience, brand, content and intended experience to guide
+creative exploration. Balanced, expressive, experimental, editorial, immersive,
+minimal and other styles are equally available; none is a mandated default.
+Explore multiple directions, detailed alternatives or mockups when valuable.
+No artificial limit on time, tokens, concepts, animations, decorative elements,
+page count, batch size or complexity imposed by this skill. Existing platform
+limits and user permissions still apply.
 
-- **Balanced:** distinctive but restrained; familiar navigation and high clarity.
-- **Expressive (new website default):** memorable typography, deliberate contrast,
-  varied section rhythm, original grid treatments and relevant micro-interactions.
-- **Experimental (only when requested or clearly fits the brief):** bold visual
-  storytelling and unconventional layouts; never at the expense of comprehension,
-  accessibility, performance or critical user flows.
+Consider typography, visual rhythm, color, layering, asymmetry, imagery, motion,
+interaction states, section order and responsive compositions. Choose familiar
+patterns or invent new components as suits the brief. Use authorized available
+research and imagery tools if helpful; do not require external installations or
+reintroduce browser-based design audit commands. Respect copyrighted assets.
 
-## Direction selection
+For a new site or page, explore broadly within its brief and brand requirements.
+For requested redesigns, change all necessary files within scope. For unrelated
+fixes, preserve appearance. Reuse components if beneficial, not as a creative
+constraint. Do not remove essential content or break behavior.
 
-Identify the site's category, audience, desired emotion, conversion goal,
-existing brand assets and the pages being built. Compare 2–3 directions
-**briefly without producing full mockups or separate builds**. Select one
-coherent direction. When the user supplied a visual reference, prefer it over
-an invented theme. Do not repeatedly ask for preferences already established.
+Technical requirements remain mandatory: Tailwind utilities only, no custom
+CSS, inline styles or @apply; PHP architecture, logical naming, static XML
+sitemap, accessibility, security and responsive usability. Consider reduced
+motion and performance without imposing arbitrary visual complexity caps.
+Validate relevant changed behavior where possible and state actual evidence.
 
-## Visual craft
+## Quality-first precedence
 
-- Choose a strong but usable typographic hierarchy; vary composition by section.
-- Create appropriate density and whitespace; avoid monotony and card overload.
-- Place imagery and supporting text so their meaning is immediately clear.
-- Use intentional asymmetry, layering, negative space, or editorial treatment
-  if these clarify the story. Not every page needs unusual effects.
-- Make the primary action clear; use conventional navigation and accessible forms.
-- Build mobile layouts deliberately; do not simply crush desktop compositions.
-- Use Tailwind responsive/state utilities, semantic markup and existing site
-  conventions. Do not introduce custom CSS or `@apply` as a shortcut.
-- Avoid gratuitous animation, layout shifts, inaccessible motion and heavy
-  dependencies for simple design effects.
-
-## Work-type behavior
-
-| Work type | Design behavior |
-| --- | --- |
-| New site | Full creative exploration within brief; choose one cohesive direction |
-| New page in existing site | Preserve palette/branding; vary page composition purposefully |
-| Routine code repair, SEO fix or format | Preserve layout and branding unless design change requested |
-| Explicit redesign | Allow necessary cross-component/page changes inside approved scope |
-| User asks for multiple concepts | Produce only the requested number, then await selection if needed |
-
-## Creative budget / usage efficiency
-
-- Reuse actual site design tokens, components and content rather than inventing
-  additional systems for small changes.
-- Do not browse for inspiration, generate images, or run visual tests unless
-  requested and authorized; no requirement to install external plugins.
-- Build one direction, one bounded page/component group at a time.
-- Do not rewrite unchanged files or generate multiple design variants by default.
-- For substantial redesigns, optimize for design quality within the requested
-  scope rather than blocking justified changes under minimal-diff guidance.
-- Use short deliverable summaries; do not narrate extensive design deliberation.
-
-## Acceptance checks for code you changed (not a visual audit)
-
-- Design responds to the audience and user brief, not a stock template.
-- Existing branding survives unless explicitly replaced.
-- Layout and imagery support content rather than distract from it.
-- Links, labels, focus states, responsive behavior and SEO content remain usable.
-- Tailwind-only implementation, no custom styling, with readable source lines.
-- Ordinary code edits have not triggered unsolicited redesigns.
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.

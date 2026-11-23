@@ -3,8 +3,8 @@ name: website-workflow
 description: >-
   Master workflow for building and changing PHP websites.
   Apply development and SEO standards, starting with Graphify.
-  Do not run tests automatically.
-  Testing is an explicit, separate read-only skill.
+  Run relevant safe verification; dedicated audits remain manual-only.
+  The dedicated test report is an explicit, separate read-only skill.
   Use when asked to build or change a site or apply the complete
   development workflow. For audits use website-test-report or website-seo-report.
 ---
@@ -129,10 +129,10 @@ description: >-
 (or the repository-root equivalent) and classify the task:
 
 1. **New / empty project:** skip initial Graphify indexing and
-   analysis. Build only the requested small section first.
+   analysis. Build the requested scope using appropriate sequencing.
 2. **Existing project:** reuse a relevant current graph to scope
    direct file inspection and targeted edits.
-3. **Custom CSS to Tailwind migration:** work in bounded batches;
+3. **Custom CSS to Tailwind migration:** choose appropriate batches;
    convert shared elements first, then individual pages. Avoid
    rewriting completed pages and maintain strict Tailwind-only CSS.
 4. **Large refactor:** split at dependency boundaries and avoid
@@ -198,7 +198,7 @@ The user does not need to invoke `$graphify` separately.
 1. Discover and read the official Graphify skill; do not assume
    that Graphify is present because this package is installed.
 2. **Reuse a relevant, sufficiently current graph** before any
-   rebuild. Query only the routes, files and dependencies relevant
+   rebuild. Query the routes, files and dependencies relevant
    to the requested work. Read just the necessary code spans.
 3. Refresh or build a graph only if relevant results are missing
    or stale, the official skill supports it, and writes are allowed.
@@ -219,7 +219,7 @@ Use the following sibling skills for development:
 1. `../php-website-development/SKILL.md`
 2. `../website-integrations-seo/SKILL.md`
 3. `../website-testing-aftercare/SKILL.md` (reference only;
-   do not execute diagnostic steps unless testing is requested)
+   execute relevant safe diagnostics when needed; separate audits stay manual)
 
 Their `references/` folders contain the original, full guidance.
 Read the reference material relevant to each phase. Do not omit
@@ -242,15 +242,15 @@ applicable requirements from the original documents.
    Batch changes; update only if needed, using the installed
    Graphify skill's documented incremental procedure. Verify
    success or mark the graph stale; never silently trust it.
-6. **Do not test automatically.** Do not execute audits, linters,
-   tests, browser checks, or quality scoring by default.
+6. Verify requested changes with relevant authorized non-destructive checks.
+   Report actual verification and limitations; dedicated audits stay manual.
 7. **Report** changed files, graph freshness and any outstanding
    work. State that tests were not run unless requested.
 
 For a narrowly scoped task, inspect all three skill scopes but
 only implement the applicable requirements. Do not add tracking,
 forms or entire pages unless requested or required by the task.
-Do not claim tests passed unless they were explicitly run.
+Do not claim tests passed unless they were actually run.
 
 ## Physical source-code line breaks (mandatory)
 
@@ -284,7 +284,7 @@ Do not claim tests passed unless they were explicitly run.
   this master skill coordinates them rather than replacing them.
 - Never publish placeholder contact details or credentials.
 - Ask for missing production IDs or secrets instead of guessing.
-- Do not test or audit after coding unless the user requests it.
+- Verify changed behavior as appropriate; dedicated audits require a request.
 - Use `$website-test-report` for a separate code-quality review.
 - Use `$website-seo-report` for a separate SEO quality audit.
 - Never run either report automatically after development.
@@ -297,3 +297,7 @@ Do not claim tests passed unless they were explicitly run.
   repairing physical line lengths in existing source code.
 - `$website-format-code --check` only reports violations.
 - Never launch either during ordinary development automatically.
+
+## Quality-first precedence
+
+Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.
