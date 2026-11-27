@@ -1,3 +1,6 @@
+> **Template Alignment & Architecture Consistency Update**
+> All 19 skills now refer to `WEBSITE_ARCHITECTURE.md`. The original supplied template files are preserved under `references/original-template/`. Later approved security, testing, Tailwind and naming conventions remain in force. Existing sites are not automatically migrated.
+
 # Codex Website Skills — Graphify-First Workflow
 
 A reusable set of Codex skills for developing, reviewing and maintaining
@@ -14,9 +17,18 @@ Use these commands in the **Codex chat**, not in PowerShell.
 
 | Command | Purpose | Changes project source? |
 | --- | --- | --- |
-| `$website-workflow` | Develop and modify websites; expressive creative direction for new builds | Yes, when requested |
+| `$website-workflow` | Develop and modify websites; unrestricted creative direction for new builds | Yes, when requested |
 | `$website-creative-design` | Optional direct creative-direction / Tailwind website design skill | When asked to implement |
 | `$website-test-report` | Quality review with a 1–10 score | No |
+| `$website-test-plan` | Discover project-specific testing requirements and missing coverage; read-only. | No |
+| `$website-test-create` | Create or update project-specific automated tests only, without repairing application code. | Test files only |
+| `$website-test-run` | Execute applicable existing tests, optionally selecting a category; no source changes. | No |
+| `$website-test-suite` | Orchestrate project-aware planning, test creation, execution and quality reporting. | Test files only |
+| `$website-security-report` | Read-only project-specific security assessment; --deep adds wider data-flow and trust-boundary analysis. | No |
+| `$website-security-test` | Execute applicable authorized security tests in isolated environments; no application fixes. | No |
+| `$website-release-check` | Read-only release readiness gate using current evidence and safe verification; never deploy. | No |
+| `$website-test-run --all` | Execute all applicable available tests | No |
+| `$website-security-report --deep` | Extended security and data-flow review | No |
 | `$website-seo-report` | Efficient URL architecture, internal links, sitemap/canonical and on-page SEO audit | No |
 | `$website-seo-report --full` | Rendered and live technical SEO verification when accessible | No |
 | `$website-seo-report --visibility` | Observed Search Console/Bing visibility and optional competitor evidence | No |
@@ -70,7 +82,7 @@ seo-url-architecture-v3.md` and `seo-audit-modes-v2.md`.
 - **Original reference materials:** detailed source documentation
   retained inside the relevant skills' `references/` directories.
 
-The package has **twelve** website skills under `.agents/skills/`.
+The package has **nineteen** website skills under `.agents/skills/`.
 
 ## Unrestricted creative design
 
@@ -132,7 +144,6 @@ remain opt-in and do not run automatically.
    `GRAPHIFY*.md` guidance files into your website project's root.
 3. If the website already has an `AGENTS.md`, **merge** its instructions
    instead of overwriting existing project rules.
-4. Optionally copy `.vscode/settings.json` to display an
    88-column guideline in VS Code. Actual code formatting is
    controlled by the skills, not by editor word wrap.
 5. Install the official Graphify skill in the website project
@@ -414,3 +425,6 @@ architecture simplification analysis. Both are strictly read-only and require
 file/line evidence, confidence, risk and manual verification recommendations.
 Neither runs automatically during development.
 
+
+## Intelligent Testing & Adaptive Security V2
+Use `$website-test-plan` to discover project-specific tests; `$website-test-create` to create test-only files; `$website-test-run` (or `--all`, `--unit`, `--feature`, `--integration`, etc.) to execute available tests; `$website-test-suite` for all stages. `$website-test-report` remains read-only. `$website-security-report` / `--deep`, `$website-security-test`, `$website-release-check` provide assessment, safe execution and readiness. See `SECURITY_TESTING_POLICY.md` for the complete category matrix, isolation rules, reporting and release gates. No automatic dependency installation or production changes; Graphify optional. Security prevention during ordinary development is project-specific and mandatory where relevant, not an automatic full audit. No visual design audit is restored. Copy the root policy and supporting Markdown files along with AGENTS.md and .agents/; preserve local project instructions and official Graphify installation.

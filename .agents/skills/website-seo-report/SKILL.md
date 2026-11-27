@@ -8,6 +8,11 @@ description: >-
   rendered PHP and search appearance with evidence; never edit.
 ---
 
+
+## Shared architecture consistency — mandatory
+
+For PHP website projects, **read root `WEBSITE_ARCHITECTURE.md` before applying this skill** to site structure, PHP pages, partials, handlers, naming, Tailwind assets, routing, integrations or relevant tests. Use the original reference documents under `references/original-template/` as supporting details. **This contract overrides conflicting archived examples** (old PHP 7.4, custom CSS, `@apply`, old handler filenames, dynamic PHP sitemaps, generic page layouts). Preserve the current project's architecture for unrelated work; no automatic migrations. Check relevant generated or assessed results against this contract and disclose unresolved conflicts or unavailable verification. This requirement applies to audit/report skills too; report commands remain read-only and change no files.
+
 # Website SEO report — manual, read-only, evidence first
 
 Invoke explicitly as `$website-seo-report`, `$website-seo-report --full`,
@@ -59,3 +64,10 @@ Do not create files, start persistent servers, modify data or deploy.
 ## Quality-first precedence
 
 Quality-first policy: efficiency is a preference, never a quality or scope cap. Expand source inspection, load additional applicable references, revisit earlier decisions, rewrite necessary code, and choose batch sizes as needed for correctness, completeness and maintainability. Perform relevant authorized, non-destructive verification; separate report commands remain manual-only. Creative design has no artificial exploration, variant, complexity, batch or token budget. Preserve user scope, branding requirements, strict Tailwind-only styling, PHP conventions, security, accessibility and permissions. Do not bypass platform limits or require external tools. Explicit standard/deep/full/visibility audit modes remain distinct; disclose incomplete coverage and never treat unverified checks as passing.
+
+## Adaptive security integration
+Flag unintended indexing of private resources as security/deployment risk; robots.txt is not an access control. Consult root SECURITY_TESTING_POLICY.md as relevant; preserve command boundaries.
+
+## Architecture-specific responsibility
+
+Audit metadata sourced from `$page_title` and `$meta_description` through the shared header, expected canonical public routes, and physical XML sitemap. No assumptions that `.php` sources equal public URLs.

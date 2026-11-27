@@ -22,6 +22,10 @@
   brand requirements and requested scope. Necessary redesign work takes priority
   over minimal diffs and usage savings. Technical standards remain mandatory.
 
+## Mandatory architecture contract — read before PHP work
+
+**REQUIRED:** Before creating, reviewing, testing or editing any PHP website structure, page, partial, handler, enum, data array, JS/CSS integration or related routes, read root `WEBSITE_ARCHITECTURE.md`. It is the single canonical architecture and code-writing contract across all skills. The five original user-supplied documents are retained verbatim under `references/original-template/`; use their specific guidance where not superseded. Do not treat archived skill reference examples as authorization to change structure. On existing projects, do not auto-migrate. When necessary read these references directly (do not assume their content is loaded merely because it is linked). All relevant skills must explicitly enforce this contract.
+
 ## Mandatory site conventions
 
 - Styling: **Tailwind utility classes only**. Zero custom CSS, inline styles,
@@ -91,6 +95,8 @@
 
 ## Detailed references (read only when relevant)
 
+- `WEBSITE_ARCHITECTURE.md`: original-template-aligned mandatory conventions.
+- `references/original-template/`: unchanged uploaded original documentation.
 - `CONTENT_ARCHITECTURE.md`: PHP arrays, enums, handlers and components.
 - `FILE_NAMING.md`: descriptive filenames and `_` prefix for non-page PHP files.
 - `DEVELOPMENT_EFFICIENCY.md`: batching, work types and Graphify sync.
@@ -100,3 +106,7 @@
   complete prior detailed rules. Read targeted sections when needed.
 - `references/AGENTS-full-previous.md` preserves earlier expanded rules
   for reference; this concise AGENTS.md takes precedence for routing.
+
+## Adaptive testing and security (V2 — authoritative)
+During development, discover actual features, trust boundaries, data, deployment and risks; apply relevant prevention and verify changed behavior and affected dependencies. Read `SECURITY_TESTING_POLICY.md` for sensitive work or testing. No speculative infrastructure, automatic full audits, mandatory external tools or creative restrictions. Existing tests may run as necessary; create a focused regression test for a reproducible bug when practical and within the requested development scope. Never change production state. Quality-first overrides artificial inspection or test budgets, not authorization or command boundaries.
+Graphify is optional: use direct source reads, read-only terminal commands and Git if unavailable. No mandatory scripts or execution-policy bypass. Report blocked checks rather than abandoning unrelated checks. Report-only commands never modify project files; test-create and test-suite may create/update tests and isolated fixtures/config only, not application code. Dependency installs, deployments, real external effects and production active testing require separate authorization. Never print secrets in reports.

@@ -325,3 +325,6 @@ checks, scoring, security scans or review workflows after edits.**
 - Keep SEO audit read-only, triggered only by an explicit command.
 - Separate source-code SEO quality from live Google rankings,
   actual SERP snippets, indexing and measured performance.
+
+## Historical status
+This archived reference is subordinate to current AGENTS.md and SECURITY_TESTING_POLICY.md. Do not revive old mandatory Graphify, token caps, design restrictions or test execution bans; current command boundaries prevail.

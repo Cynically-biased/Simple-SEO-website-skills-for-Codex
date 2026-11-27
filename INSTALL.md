@@ -1,3 +1,6 @@
+> **Template Alignment & Architecture Consistency Update**
+> All 19 skills now refer to `WEBSITE_ARCHITECTURE.md`. The original supplied template files are preserved under `references/original-template/`. Later approved security, testing, Tailwind and naming conventions remain in force. Existing sites are not automatically migrated.
+
 # Install and use the complete Codex website workflow
 
 ## Install in your project
@@ -7,9 +10,8 @@
    merge the new instructions instead of overwriting it.
 3. Copy the **entire** `.agents/` folder into the project root,
    including its `skills/` subfolders and all `references/`.
-4. Optionally copy `.vscode/settings.json` for a visible 88-column
-   guide. It is not needed for source-code formatting.
-5. Install the **official Graphify Codex skill** using the steps
+4. No editor-specific settings are required.
+5. Optionally install the **official Graphify Codex skill** using the steps
    below (the ZIP includes the integration guidance, not the Python
    Graphify executable).
 6. Restart Codex and open this project.
@@ -558,3 +560,6 @@ be verified. The local standard mode remains efficient and read-only;
 `--full` only accesses authorized rendered/live environments.
 Read `website-seo-report/references/seo-url-architecture-v3.md` for scope
 and evidence requirements. Keep your existing static `sitemap.xml` policy.
+
+## Intelligent Testing & Adaptive Security V2
+Use `$website-test-plan` to discover project-specific tests; `$website-test-create` to create test-only files; `$website-test-run` (or `--all`, `--unit`, `--feature`, `--integration`, etc.) to execute available tests; `$website-test-suite` for all stages. `$website-test-report` remains read-only. `$website-security-report` / `--deep`, `$website-security-test`, `$website-release-check` provide assessment, safe execution and readiness. See `SECURITY_TESTING_POLICY.md` for the complete category matrix, isolation rules, reporting and release gates. No automatic dependency installation or production changes; Graphify optional. Security prevention during ordinary development is project-specific and mandatory where relevant, not an automatic full audit. No visual design audit is restored. Copy the root policy and supporting Markdown files along with AGENTS.md and .agents/; preserve local project instructions and official Graphify installation.
